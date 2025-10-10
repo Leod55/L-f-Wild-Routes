@@ -1,0 +1,68 @@
+<script>
+import Header from '@/components/Header.vue'
+import Navbar from '@/components/Navbar.vue'
+import DestinationCard from '@/components/DestinationCard.vue'
+import Footer from '@/components/Footer.vue'
+import Sidebar from '@/components/Sidebar.vue'
+
+export default {
+  components: {
+    Header,
+    Navbar,
+    Footer,
+    DestinationCard,
+    Sidebar
+  }
+}
+</script>
+
+<template>
+
+    <Header>
+    </Header>
+ 
+    <Navbar>
+    </Navbar>
+
+    <Sidebar>
+    </Sidebar>
+
+    <article id="home_article" class="col-6">
+
+    <div class="home_titles">
+      <h1> L&F WildRoutes HOME</h1>
+
+      <h2> Vivi la tua avventura insieme a noi</h2>
+    </div>
+
+    <div>
+      Il sito è destinato per gli amanti dei viaggi selvaggi, troverete proposte di ogni tipo: <br>
+      dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
+    </div>
+
+    <div>
+      <DestinationCard></DestinationCard>
+    </div>
+
+  </article>
+
+  <Sidebar>
+  </Sidebar>
+
+  <Footer>
+  </Footer>
+
+</template>
+
+<style>
+
+#home_article{
+    text-align: center;
+}
+
+.home_titles{
+    text-align: center;
+    margin: 20px;
+}
+
+</style>

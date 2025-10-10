@@ -1,0 +1,17 @@
+:root {
+
+    --primary: #984216;
+    --secondary: #e4d6c5;
+    --tertiary: #78898f;
+    --quartiary: #28514e;
+    --white: #ffffff;
+    --black: #000000;
+
+    font-family: Iconoplastic, Arial, Helvetica, sans-serif;
+
+}
+
+@font-face {
+    font-family: 'Regular';
+    src: url(./font/iconoplastic.ttf);
+}
