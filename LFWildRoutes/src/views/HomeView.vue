@@ -24,30 +24,33 @@ export default {
     <Navbar>
     </Navbar>
 
+<article class="row">
+
     <Sidebar>
     </Sidebar>
 
-    <article id="home_article" class="col-6">
+    <div id="home_div" class="col-6">
 
-    <div class="home_titles">
-      <h1> L&F WildRoutes HOME</h1>
+      <div class="home_titles">
+        <h1> L&F WildRoutes HOME</h1>
 
-      <h2> Vivi la tua avventura insieme a noi</h2>
+        <h2> Vivi la tua avventura insieme a noi</h2>
+      </div>
+
+      <div>
+        Il sito è destinato per gli amanti dei viaggi selvaggi, troverete proposte di ogni tipo: <br>
+        dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
+      </div>
+
+      <div>
+        <DestinationCard></DestinationCard>
+      </div>
+
     </div>
 
-    <div>
-      Il sito è destinato per gli amanti dei viaggi selvaggi, troverete proposte di ogni tipo: <br>
-      dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
-    </div>
-
-    <div>
-      <DestinationCard></DestinationCard>
-    </div>
-
+    <Sidebar>
+    </Sidebar>
   </article>
-
-  <Sidebar>
-  </Sidebar>
 
   <Footer>
   </Footer>
@@ -56,7 +59,7 @@ export default {
 
 <style>
 
-#home_article{
+#home_div{
     text-align: center;
 }
 

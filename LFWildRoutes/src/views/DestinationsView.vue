@@ -28,30 +28,35 @@ export default {
     <Navbar>
     </Navbar>
 
-    <Sidebar>
-    </Sidebar>
+<article class="row">
 
-    <article id="destinations_article" class="col-6">
+  <Sidebar>
+  </Sidebar>
+
+  <div id="destinations_div" class="col-6">
 
     <div> <h1> Destinazioni disponibili </h1> </div>
 
-        <div>
-            <DestinationCard>
-            </DestinationCard>
+      <div>
+        <DestinationCard>
+        </DestinationCard>
     
-            <DestinationCard>
-            </DestinationCard>
+        <DestinationCard>
+        </DestinationCard>
     
-            <DestinationCard>
-            </DestinationCard>
-            <DestinationCard>
-            </DestinationCard>
-        </div>
+        <DestinationCard>
+        </DestinationCard>
 
-    </article>
+        <DestinationCard>
+        </DestinationCard>
+      </div>
+      
+      </div>
 
     <Sidebar>
     </Sidebar>
+
+</article>
 
     <Footer>
     </Footer>

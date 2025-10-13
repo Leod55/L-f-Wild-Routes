@@ -22,10 +22,12 @@ export default {
     <Navbar>
     </Navbar>
 
+<article class="row">
+
     <Sidebar>
     </Sidebar>
 
-    <article id="login_article" class="col-6">
+    <div id="login_div" class="col-6">
 
         <div> <h1  id="login_title"> Login </h1> </div>
 
@@ -50,10 +52,12 @@ export default {
             </form>
         </div>
 
-    </article>
+    </div>
 
     <Sidebar>
     </Sidebar>
+
+</article>
 
     <Footer>
     </Footer>
@@ -62,7 +66,7 @@ export default {
 
 <style>
 
-#login_article{
+#login_div{
     height: 600px;
 }
 

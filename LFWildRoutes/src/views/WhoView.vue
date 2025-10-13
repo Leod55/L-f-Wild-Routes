@@ -26,10 +26,12 @@ export default {
       <Navbar>
       </Navbar>
 
+<article class="row">
+    
       <Sidebar>
       </Sidebar>
 
-      <article id="who_article" class="col-6">
+      <div id="who_div" class="col-6">
 
             <div> <h1> Noi di L&F WildRoutes </h1> </div>
 
@@ -44,10 +46,12 @@ export default {
                   </GuideCard>
             </div>
             
-      </article>
+      </div>
 
       <Sidebar>
       </Sidebar>
+
+</article>
 
       <Footer>
       </Footer>

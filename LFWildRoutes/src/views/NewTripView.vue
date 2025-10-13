@@ -21,10 +21,12 @@ export default {
     <Navbar>
     </Navbar>
 
+<article class="row">
+
     <Sidebar>
     </Sidebar>
 
-    <article id="newtrip_article" class="col-6">
+    <div id="newtrip_div" class="col-6">
 
         <div> <h1  id="newtrip_title"> Inserisci un nuovo viaggio </h1> </div>
 
@@ -64,10 +66,12 @@ export default {
             </div>
 
         </form>
-    </article>
+    </div>
 
     <Sidebar>
     </Sidebar>
+
+</article>
 
     <Footer>
     </Footer>
@@ -76,7 +80,7 @@ export default {
 
 
 <style>
-#newtrip_article{
+#newtrip_div{
     text-align: center;
 }
 </style>
