@@ -68,24 +68,30 @@ export default {
 
 #login_div{
     height: 600px;
+
 }
 
 
 #login_form {
     text-align: center;
-    background: var(--primary);
+    background: rgba(var(--primary-rgb), 0.6);
+
     color: var(--secondary);
 
     position: absolute;
 
-    top: 70%;
+    top: 85%;
     left: 50%;
 
-    padding: 20px;
+    padding: 20px 5px;
     margin: 0;
 
     transform: translate(-50%, -50%);
-    border-radius: 10px;
+    border-radius: 20px;
+
+    font-size: 25px;
+
+    width: 15%;
 }
 
 #login_form input{
