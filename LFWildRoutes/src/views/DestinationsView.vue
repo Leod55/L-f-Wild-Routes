@@ -16,10 +16,6 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
-
 <template>
 
     <Header>
@@ -40,10 +36,10 @@ export default {
       <div>
         <DestinationCard>
         </DestinationCard>
-    
+
         <DestinationCard>
         </DestinationCard>
-    
+
         <DestinationCard>
         </DestinationCard>
 
@@ -62,3 +58,7 @@ export default {
     </Footer>
 
 </template>
+
+<style>
+
+</style>

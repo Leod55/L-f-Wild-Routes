@@ -22,7 +22,7 @@ export default {
     <Navbar>
     </Navbar>
 
-<article class="row">
+<article class="row login_article">
 
     <Sidebar>
     </Sidebar>
