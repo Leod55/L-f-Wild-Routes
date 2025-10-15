@@ -1,9 +1,10 @@
 <script>
-import Header from '@/components/Header.vue'
-import Navbar from '@/components/Navbar.vue'
-import DestinationCard from '@/components/DestinationCard.vue'
-import Footer from '@/components/Footer.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import Header from "@/components/Header.vue";
+import Navbar from "@/components/Navbar.vue";
+import DestinationCard from "@/components/DestinationCard.vue";
+import Footer from "@/components/Footer.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import AdCard from "@/components/AdCard.vue";
 
 export default {
   components: {
@@ -11,54 +12,39 @@ export default {
     Navbar,
     Footer,
     DestinationCard,
-    Sidebar
-  }
-}
+    Sidebar,
+    AdCard,
+  },
+};
 </script>
 
 <template>
+  <Header> </Header>
 
-    <Header>
-    </Header>
+  <Navbar> </Navbar>
 
-    <Navbar>
-    </Navbar>
+  <article class="row">
+    <Sidebar> </Sidebar>
 
-<article class="row">
-
-  <Sidebar>
-  </Sidebar>
-
-  <div id="destinations_div" class="col-6">
-
-    <div> <h1> Destinazioni disponibili </h1> </div>
+    <div id="destinations_div" class="col-6">
+      <div><h1>Destinazioni disponibili</h1></div>
 
       <div>
-        <DestinationCard>
-        </DestinationCard>
+        <DestinationCard> </DestinationCard>
 
-        <DestinationCard>
-        </DestinationCard>
+        <DestinationCard> </DestinationCard>
 
-        <DestinationCard>
-        </DestinationCard>
+        <DestinationCard> </DestinationCard>
 
-        <DestinationCard>
-        </DestinationCard>
+        <DestinationCard> </DestinationCard>
       </div>
-      
-      </div>
+    </div>
 
-    <Sidebar>
-    </Sidebar>
+    <AdCard> </AdCard>
+    <AdCard> </AdCard>
+  </article>
 
-</article>
-
-    <Footer>
-    </Footer>
-
+  <Footer> </Footer>
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -10,7 +10,11 @@
 
     <div class="section_content row">
       <div class="col-6">
-        <img src="../assets/img/FotoGrecia2.jpg" alt="logo" height="500" />
+        <img
+          src="../assets/img/FotoGrecia2.jpg"
+          alt="fotogrecia"
+          height="500"
+        />
       </div>
 
       <div class="col-6">

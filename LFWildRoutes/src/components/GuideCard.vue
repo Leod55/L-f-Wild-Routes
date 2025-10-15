@@ -36,4 +36,15 @@
   </article>
 </template>
 
-<style></style>
+<style>
+a:link {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+a:hover {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--tertiary);
+}
+</style>
