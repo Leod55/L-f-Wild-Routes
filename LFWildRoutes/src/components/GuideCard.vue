@@ -1,30 +1,39 @@
-<script>
-</script>
+<script></script>
 
 <template>
+  <article class="section_article col-12">
+    <div class="row">
+      <h3 class="section_title">Francesca Caterina del Zompo</h3>
+    </div>
 
-    <article class="section_article">
+    <hr />
 
-        <div class="section_title"> <h3>Francesca Caterina del Zompo</h3> </div>
+    <div class="section_content row">
+      <div class="col-6">
+        <a href="/">
+          <img
+            src="../assets/img/scimmia.png"
+            alt="fotofrancesca"
+            width="300"
+          />
+        </a>
+      </div>
 
-        <div class="section_content">
+      <div class="col-6">
+        <b>Data nascita:</b><br />
+        10/01/1962<br /><br />
 
-            <a href="/">
-                <img src="../assets/img/scimmia.png" alt="fotofrancesca" width="200">
-            </a>
+        <b>Città residenza:</b><br />
+        Cagliari<br /><br />
 
-            <p>Data nascita: 10/01/1962</p>
+        <b>Descrizione:</b><br />
+        ragazza un po cogliona,
+        dsfffdsdffffffffffffffffffffffffffffffffffffffffffffffffffffffff<br /><br />
+      </div>
+    </div>
 
-            <p>Città residenza: Cagliari</p>
-
-            <p>Descrizione: ragazza un po cogliona</p>
-
-        </div>
-
-    </article>
-
+    <hr />
+  </article>
 </template>
 
-<style>
-
-</style>
+<style></style>
