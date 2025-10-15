@@ -2,11 +2,17 @@
 
 <template>
   <footer class="col-12 row">
-    © 2025 LFWildRoutes <br />
-    Un sito di Leonardo Dessanay e Francesca del Zompo <br />
-    <br />
-    Contatti: lfwildroutes@gmail.com
+    <div id="footer_div">
+      © 2025 LFWildRoutes <br />
+      Un sito di Leonardo Dessanay e Francesca del Zompo <br />
+      <br />
+      Contatti: lfwildroutes@gmail.com
+    </div>
   </footer>
 </template>
 
-<style></style>
+<style>
+#footer_div {
+  padding: 15px;
+}
+</style>

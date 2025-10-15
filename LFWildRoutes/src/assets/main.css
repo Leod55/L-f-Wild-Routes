@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-/*Metto il padding solo delle colonne 3 e 6 perche compongono le 3 sezioni, mentre negli elementi da 12 cosi riesco a gestire tutto normalmente*/
-
 .col-1 {
   width: 8.33%;
 }
@@ -23,7 +21,6 @@
 }
 .col-6 {
   width: 50%;
-  padding: 0 15px;
 }
 .col-7 {
   width: 58.33%;
@@ -33,7 +30,6 @@
 }
 .col-9 {
   width: 75%;
-  padding: 0 15px;
 }
 .col-10 {
   width: 83.33%;
@@ -47,11 +43,13 @@
 
 [class*="col-"] {
   float: left;
+  padding: 0 15px;
 }
 
 @media only screen and (min-width: 768px) {
   [class*="col-"] {
     float: left;
+    padding: 0 15px;
   }
 }
 
@@ -98,6 +96,7 @@ aside {
   position: relative;
   border-radius: 20px;
   margin: 20px 0;
+
   height: auto;
 }
 
