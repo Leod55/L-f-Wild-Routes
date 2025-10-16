@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <img src="../assets/img/Zaino.jpg" alt="ad1" height="230" />
+      <img src="../assets/img/Zaino.jpg" alt="ad1" height="200" />
     </div>
   </article>
 </template>

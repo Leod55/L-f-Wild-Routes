@@ -1,55 +1,26 @@
-<script>
-import Header from "@/components/Header.vue";
-import Navbar from "@/components/Navbar.vue";
-import Footer from "@/components/Footer.vue";
-import Sidebar from "@/components/Sidebar.vue";
-import AdCard from "@/components/AdCard.vue";
-
-export default {
-  components: {
-    Header,
-    Navbar,
-    Footer,
-    Sidebar,
-    AdCard,
-  },
-};
-</script>
+<script></script>
 
 <template>
-  <Header> </Header>
+  <div id="login_div" class="col-6">
+    <div><h1 id="login_title">Login</h1></div>
 
-  <Navbar> </Navbar>
+    <div id="div_form">
+      <form id="login_form" action="login" method="POST">
+        <label for="username"> Username: </label> <br />
+        <input type="text" id="username" name="username" />
 
-  <article class="row login_article">
-    <Sidebar> </Sidebar>
+        <br />
 
-    <div id="login_div" class="col-6">
-      <div><h1 id="login_title">Login</h1></div>
+        <label for="password"> Password: </label> <br />
+        <input type="password" id="password" name="password" />
 
-      <div id="div_form">
-        <form id="login_form" action="login" method="POST">
-          <label for="username"> Username: </label> <br />
-          <input type="text" id="username" name="username" />
+        <br />
+        <br />
 
-          <br />
-
-          <label for="password"> Password: </label> <br />
-          <input type="password" id="password" name="password" />
-
-          <br />
-          <br />
-
-          <input type="submit" value="Accedi" />
-        </form>
-      </div>
+        <input type="submit" value="Accedi" />
+      </form>
     </div>
-
-    <AdCard> </AdCard>
-    <AdCard></AdCard>
-  </article>
-
-  <Footer> </Footer>
+  </div>
 </template>
 
 <style>

@@ -1,78 +1,49 @@
-<script>
-import Header from "@/components/Header.vue";
-import Navbar from "@/components/Navbar.vue";
-import Footer from "@/components/Footer.vue";
-import Sidebar from "@/components/Sidebar.vue";
-import AdCard from "@/components/AdCard.vue";
-
-export default {
-  components: {
-    Header,
-    Navbar,
-    Footer,
-    Sidebar,
-    AdCard,
-  },
-};
-</script>
+<script></script>
 
 <template>
-  <Header> </Header>
+  <div id="newtrip_div" class="col-6">
+    <div><h1 id="newtrip_title">Inserisci un nuovo viaggio</h1></div>
 
-  <Navbar> </Navbar>
+    <form action="newtrip" method="POST">
+      <div>
+        <label for="destination"> Destinazione: </label> <br />
+        <input type="text" id="destination" name="destination" /> <br />
+      </div>
 
-  <article class="row">
-    <Sidebar> </Sidebar>
+      <hr />
 
-    <div id="newtrip_div" class="col-6">
-      <div><h1 id="newtrip_title">Inserisci un nuovo viaggio</h1></div>
+      <div>
+        <label for="description"> Descrizione: </label> <br />
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          cols="50"
+        ></textarea>
+        <br />
+      </div>
 
-      <form action="newtrip" method="POST">
-        <div>
-          <label for="destination"> Destinazione: </label> <br />
-          <input type="text" id="destination" name="destination" /> <br />
-        </div>
+      <hr />
 
-        <hr />
+      <div>
+        <label for="date"> Data di partenza: </label> <br />
+        <input type="date" id="date_p" name="date_p" /> <br />
+      </div>
 
-        <div>
-          <label for="description"> Descrizione: </label> <br />
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            cols="50"
-          ></textarea>
-          <br />
-        </div>
+      <hr />
 
-        <hr />
+      <div>
+        <label for="date"> Data di ritorno: </label> <br />
+        <input type="date" id="date_r" name="date_r" /> <br />
+      </div>
 
-        <div>
-          <label for="date"> Data di partenza: </label> <br />
-          <input type="date" id="date_p" name="date_p" /> <br />
-        </div>
+      <hr />
 
-        <hr />
-
-        <div>
-          <label for="date"> Data di ritorno: </label> <br />
-          <input type="date" id="date_r" name="date_r" /> <br />
-        </div>
-
-        <hr />
-
-        <div>
-          <input type="submit" value="Inserisci viaggio" />
-        </div>
-      </form>
-    </div>
-
-    <AdCard></AdCard>
-    <AdCard></AdCard>
-  </article>
-
-  <Footer> </Footer>
+      <div>
+        <input type="submit" value="Inserisci viaggio" />
+      </div>
+    </form>
+  </div>
 </template>
 
 <style>
