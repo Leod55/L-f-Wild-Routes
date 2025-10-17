@@ -87,17 +87,15 @@ footer {
   margin-top: 40px;
   position: relative;
   bottom: 10px;
-  padding: 10px;
 }
 
 aside {
   text-align: center;
-  background: var(--primary);
-  position: relative;
+  background: var(--tertiary);
   border-radius: 20px;
   margin: 20px 0;
-  top: 80px;
-  height: auto;
+  height: 15cm;
+  margin-top: 150px;
 }
 
 h1,
@@ -112,6 +110,11 @@ h4,
 h5,
 h6 {
   color: var(--tertiary);
+}
+
+.main_div {
+  text-align: center;
+  margin: 50px 0;
 }
 
 /*-------------------------------------------CARD SECTIONS-----------------------------------------------------------*/

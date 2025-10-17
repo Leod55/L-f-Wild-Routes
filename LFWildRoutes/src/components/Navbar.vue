@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <nav class="col-12 row">
+  <nav id="pippo" class="col-12 row">
     <ul>
       <li><RouterLink to="/">HOME</RouterLink></li>
       <li><RouterLink to="/destinations">DESTINATIONS</RouterLink></li>
@@ -40,5 +40,10 @@ a:hover {
   font-weight: bold;
   font-size: 16px;
   color: var(--secondary);
+}
+
+.router-link-exact-active {
+  color: var(--white);
+  font-weight: bold;
 }
 </style>

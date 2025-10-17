@@ -1,18 +1,26 @@
 :root {
+  --primary: #984216;
+  --primary-rgb: 161, 66, 22;
 
-    --primary: #984216;
-    --primary-rgb: 161, 66, 22;
-    --secondary: #e4d6c5;
-    --tertiary: #78898f;
-    --quartiary: #28514e;
-    --white: #ffffff;
-    --black: #000000;
+  --secondary: #e4d6c5;
+  --secondary-rgb: 228, 214, 197;
 
-    font-family: Iconoplastic, Arial, Helvetica, sans-serif;
+  --tertiary: #78898f;
+  --tertiary-rgb: 120, 137, 143;
 
+  --quartiary: #28514e;
+  --quartiary-rgb: 40, 81, 78;
+
+  --white: #ffffff;
+  --white-rgb: 255, 255, 255;
+
+  --black: #000000;
+  --black-rgb: 0, 0, 0;
+
+  font-family: Iconoplastic, Arial, Helvetica, sans-serif;
 }
 
 @font-face {
-    font-family: 'Regular';
-    src: url(./font/iconoplastic.ttf);
+  font-family: "Regular";
+  src: url(./font/iconoplastic.ttf);
 }

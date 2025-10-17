@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <div id="newtrip_div" class="col-6">
+  <div class="col-6 main_div">
     <div><h1 id="newtrip_title">Inserisci un nuovo viaggio</h1></div>
 
     <form action="newtrip" method="POST">
@@ -46,8 +46,4 @@
   </div>
 </template>
 
-<style>
-#newtrip_div {
-  text-align: center;
-}
-</style>
+<style></style>

@@ -21,7 +21,7 @@ export default {
   <Header></Header>
   <Navbar></Navbar>
 
-  <div>
+  <div class="row">
     <Sidebar></Sidebar>
     <RouterView></RouterView>
     <AdCard></AdCard>

@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <div id="login_div" class="col-6">
+  <div class="col-6 main_div">
     <div><h1 id="login_title">Login</h1></div>
 
     <div id="div_form">
@@ -24,10 +24,6 @@
 </template>
 
 <style>
-#login_div {
-  height: 600px;
-}
-
 #login_form {
   text-align: center;
   background: rgba(var(--primary-rgb), 0.6);

@@ -11,7 +11,7 @@ export default {
 <style></style>
 
 <template>
-  <div id="who_div" class="col-6">
+  <div class="col-6 main_div">
     <div><h1>Noi di L&F WildRoutes</h1></div>
 
     <div>

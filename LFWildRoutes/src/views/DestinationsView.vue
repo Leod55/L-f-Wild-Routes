@@ -9,8 +9,8 @@ export default {
 </script>
 
 <template>
-  <div id="destinations_div" class="col-6">
-    <div><h1>Destinazioni disponibili</h1></div>
+  <div class="col-6 main_div">
+    <h1>Destinazioni disponibili</h1>
 
     <div>
       <DestinationCard> </DestinationCard>

@@ -3,7 +3,7 @@
 <template>
   <article class="col-3 ad_article">
     <div>
-      <h4>Titolo pubblicità</h4>
+      <h4>Pubblicità 1</h4>
     </div>
 
     <div>
@@ -14,6 +14,6 @@
 
 <style>
 .ad_article {
-  margin: 30px 0;
+  margin-top: 150px;
 }
 </style>
