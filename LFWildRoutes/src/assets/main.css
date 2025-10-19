@@ -110,11 +110,14 @@ h4,
 h5,
 h6 {
   color: var(--tertiary);
+  font-size: 18px;
 }
+
+/*-------------------------------------------PAGE SECTIONS-----------------------------------------------------------*/
 
 .main_div {
   text-align: center;
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 /*-------------------------------------------CARD SECTIONS-----------------------------------------------------------*/
@@ -124,7 +127,13 @@ h6 {
 }
 
 .section_article a {
-  color: var(--black);
+  color: var(--quartiary);
+}
+
+.section_article a:hover {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--quartiary);
 }
 
 .section_title {

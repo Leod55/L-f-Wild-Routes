@@ -12,13 +12,11 @@ export default {
 
 <template>
   <div class="col-6 main_div">
-    <div><h1>Noi di L&F WildRoutes</h1></div>
+    <h1>Noi di L&F WildRoutes</h1>
 
     <div>
       <GuideCard> </GuideCard>
-    </div>
 
-    <div>
       <GuideCard> </GuideCard>
     </div>
   </div>

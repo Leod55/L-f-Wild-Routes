@@ -2,15 +2,13 @@
 
 <template>
   <div class="col-6 main_div">
-    <div><h1 id="newtrip_title">Inserisci un nuovo viaggio</h1></div>
+    <h1 id="newtrip_title">Inserisci un nuovo viaggio</h1>
 
     <form action="newtrip" method="POST">
       <div>
         <label for="destination"> Destinazione: </label> <br />
         <input type="text" id="destination" name="destination" /> <br />
       </div>
-
-      <hr />
 
       <div>
         <label for="description"> Descrizione: </label> <br />
@@ -23,21 +21,15 @@
         <br />
       </div>
 
-      <hr />
-
       <div>
         <label for="date"> Data di partenza: </label> <br />
         <input type="date" id="date_p" name="date_p" /> <br />
       </div>
 
-      <hr />
-
       <div>
         <label for="date"> Data di ritorno: </label> <br />
         <input type="date" id="date_r" name="date_r" /> <br />
       </div>
-
-      <hr />
 
       <div>
         <input type="submit" value="Inserisci viaggio" />

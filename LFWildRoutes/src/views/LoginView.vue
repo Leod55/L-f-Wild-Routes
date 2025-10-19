@@ -2,23 +2,26 @@
 
 <template>
   <div class="col-6 main_div">
-    <div><h1 id="login_title">Login</h1></div>
+    <h1 id="login_title">Login</h1>
 
-    <div id="div_form">
+    <div>
       <form id="login_form" action="login" method="POST">
-        <label for="username"> Username: </label> <br />
-        <input type="text" id="username" name="username" />
+        <div class="form_section">
+          <label for="username"> Username: </label>
+          <input type="text" id="username" name="username" />
+        </div>
 
-        <br />
+        <div class="form_section">
+          <label for="password"> Password: </label> <br />
+          <input type="password" id="password" name="password" />
+        </div>
 
-        <label for="password"> Password: </label> <br />
-        <input type="password" id="password" name="password" />
-
-        <br />
-        <br />
-
-        <input type="submit" value="Accedi" />
+        <div class="form_section">
+          <input type="submit" value="Accedi" />
+        </div>
       </form>
+
+      <!--<form id="login_form" action="signup" method="POST"></form>-->
     </div>
   </div>
 </template>
@@ -26,24 +29,31 @@
 <style>
 #login_form {
   text-align: center;
-  background: rgba(var(--primary-rgb), 0.6);
+  background: var(--primary);
+  box-shadow: 10px 10px 40px var(--black);
+  border-radius: 20px;
 
   color: var(--secondary);
 
+  padding: 20px 5px;
+  margin: 80px auto;
+
+  font-size: 20px;
+
+  /*
   position: absolute;
 
   top: 85%;
   left: 50%;
 
-  padding: 20px 5px;
-  margin: 0;
-
   transform: translate(-50%, -50%);
-  border-radius: 20px;
+  */
 
-  font-size: 25px;
+  width: 50%;
+}
 
-  width: 15%;
+.form_section {
+  margin: 40px 0;
 }
 
 #login_form input {
