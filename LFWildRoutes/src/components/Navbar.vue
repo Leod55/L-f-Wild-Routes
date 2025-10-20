@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <nav id="pippo" class="col-12 row">
+  <nav class="col-12 row">
     <ul>
       <li><RouterLink to="/">HOME</RouterLink></li>
       <li><RouterLink to="/destinations">DESTINATIONS</RouterLink></li>
@@ -45,5 +45,26 @@ nav a:hover {
 .router-link-exact-active {
   color: var(--white);
   font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  nav.col-12 {
+    position: static;
+    text-align: left;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  nav > ul > li {
+    display: block;
+    width: 100%;
+    border-left: none;
+
+    padding: 15px 0;
+    text-align: center;
+  }
 }
 </style>

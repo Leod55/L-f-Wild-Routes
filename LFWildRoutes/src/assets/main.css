@@ -43,13 +43,13 @@
 
 [class*="col-"] {
   float: left;
-  padding: 0 15px;
+  padding: 0;
 }
 
 @media only screen and (min-width: 768px) {
   [class*="col-"] {
     float: left;
-    padding: 0 15px;
+    padding: 0;
   }
 }
 
@@ -77,8 +77,8 @@ nav {
   padding: 0;
   top: 10px;
   margin-top: 10px;
-  margin-bottom: 60px;
-  border-radius: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
 }
 
 footer {
@@ -93,7 +93,7 @@ aside {
   text-align: center;
   background: var(--tertiary);
   border-radius: 20px;
-  margin: 20px 0;
+  margin: 0;
   height: 15cm;
   margin-top: 150px;
 }
@@ -116,14 +116,14 @@ h6 {
 /*-------------------------------------------PAGE SECTIONS-----------------------------------------------------------*/
 
 .main_div {
-  text-align: center;
-  margin: 20px 0;
+  margin: 40px 0;
+  padding: 0 10px;
 }
 
 /*-------------------------------------------CARD SECTIONS-----------------------------------------------------------*/
 
 .section_article {
-  margin: 20px;
+  margin: 15px;
 }
 
 .section_article a {
@@ -145,6 +145,16 @@ h6 {
 .section_content {
   font-size: 15px;
   color: var(--black);
+}
+
+.img_section {
+  margin: 60px 0;
+  padding: 15px;
+}
+
+.img_section img {
+  width: 100%;
+  height: auto;
 }
 
 .row::after {

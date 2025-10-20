@@ -7,7 +7,7 @@
     <hr />
 
     <div class="section_content row">
-      <div class="col-6">
+      <div class="col-6 img_section">
         <img src="../assets/img/scimmia.png" alt="fotofrancesca" height="200" />
       </div>
 

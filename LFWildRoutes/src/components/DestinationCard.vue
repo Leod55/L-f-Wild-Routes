@@ -8,11 +8,7 @@
 
     <div class="section_content row">
       <div class="col-6 img_section">
-        <img
-          src="../assets/img/FotoGrecia2.jpg"
-          alt="fotogrecia"
-          height="500"
-        />
+        <img src="../assets/img/FotoGrecia2.jpg" alt="fotogrecia" />
       </div>
 
       <div class="col-6">
@@ -74,9 +70,5 @@
 }
 #extra_ul > li {
   list-style-type: none;
-}
-
-.img_section {
-  margin: 80px 0;
 }
 </style>
