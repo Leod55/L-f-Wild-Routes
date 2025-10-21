@@ -33,10 +33,10 @@
   box-shadow: 10px 10px 40px var(--black);
   border-radius: 20px;
 
-  color: var(--secondary);
+  color: var(--black);
 
-  padding: 20px 5px;
-  margin: 80px auto;
+  padding: 10px 5px;
+  margin: 60px auto;
 
   font-size: 20px;
 
@@ -68,12 +68,11 @@
   font-weight: bold;
   cursor: pointer;
 
-  padding: 5%;
-  width: 70%;
+  padding: 15px;
 }
 
 #login_form input[type="submit"]:hover {
-  background: var(--primary);
+  background: var(--black);
   color: var(--secondary);
 }
 </style>

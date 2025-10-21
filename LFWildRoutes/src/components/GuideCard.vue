@@ -31,8 +31,6 @@
         </section>
       </div>
     </div>
-
-    <hr />
   </article>
 </template>
 
