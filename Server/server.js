@@ -1,9 +1,9 @@
 const express = require("express");
-const filmRoutes = require("./src/viaggi/viaggi_routes");
+const viaggiRoutes = require("./src/viaggi/viaggi_routes");
 const app = express();
 const port = 3000;
 
-app.use("/film", filmRoutes);
+app.use("/viaggi", viaggiRoutes);
 app.listen(port, () => console.log(`app listening on port ${port}!`));
 
 app.get("/", (req, res) => {
