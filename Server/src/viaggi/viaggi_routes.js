@@ -6,10 +6,12 @@ const router = Router();
 //GET VIAGGI
 
 router.get("/", controller.getViaggiList);
-router.get("/:id", controller.getViaggioById);
+router.get("/:idv", controller.getViaggioById);
 
 //POST VIAGGI
 
 router.post("/", controller.addViaggio);
+
+router.delete("/:idv", controller.deleteViaggio);
 
 module.exports = router;

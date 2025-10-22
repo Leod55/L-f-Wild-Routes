@@ -9,7 +9,7 @@ const getViaggiList = (req, res) => {
 };
 
 const getViaggioById = (req, res) => {
-  const idv = parseInt(res.params.id);
+  const idv = parseInt(res.params.idv);
   pool.query(queries.getViaggioById, [idv], (error, results) => {
     if (error) throw error;
     res.status(200).json(results.rows);
@@ -49,9 +49,21 @@ const addViaggio = (req, res) => {
         ],
         (error) => {
           if (error) throw error;
-          res.status(201).send("Film aggiunto correttamente al database");
+          res.status(201).send("Viaggio aggiunto correttamente al database");
         }
       );
+    }
+  });
+};
+
+const deleteViaggio = (req, res) => {
+  const idv = parseInt(req.params.idv);
+  pool.query(queries.deleteViaggio, [idv], (error, results) => {
+    if (error) throw error;
+    if (results.rowCount === 0) {
+      res.status(404).send("Viaggio non trovato");
+    } else {
+      res.status(200).send("Viaggio eliminato");
     }
   });
 };
@@ -60,4 +72,5 @@ module.exports = {
   getViaggiList,
   getViaggioById,
   addViaggio,
+  deleteViaggio,
 };
