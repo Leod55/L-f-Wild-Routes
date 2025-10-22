@@ -3,10 +3,13 @@ const controller = require("./viaggi_controller");
 
 const router = Router();
 
-router.get("/", controller.getViaggiList);
+//GET VIAGGI
 
-router.get("/", (req, res) => {
-  res.send("viaggi list");
-});
+router.get("/", controller.getViaggiList);
+router.get("/:id", controller.getViaggioById);
+
+//POST VIAGGI
+
+router.post("/", controller.addViaggio);
 
 module.exports = router;
