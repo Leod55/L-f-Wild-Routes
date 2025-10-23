@@ -1,19 +1,19 @@
 const { Router } = require("express");
-const controllerViaggi = require("./viaggi_controller");
+const controller = require("./viaggi_controller");
 
 const router = Router();
 
 //GET VIAGGI
 
-router.get("/", controllerViaggi.getViaggiList);
-router.get("/:idv", controllerViaggi.getViaggioById);
+router.get("/", controller.getViaggiList);
+router.get("/:idv", controller.getViaggioById);
 
 //POST VIAGGI
 
-router.post("/", controllerViaggi.addViaggio);
+router.post("/", controller.addViaggio);
 
-//DELETE VIAGGI
+router.delete("/:idv", controller.deleteViaggio);
 
-router.delete("/:idv", controllerViaggi.deleteViaggio);
+router.put("/:idv", controller.updateViaggio);
 
 module.exports = router;
