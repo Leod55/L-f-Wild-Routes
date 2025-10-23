@@ -14,6 +14,4 @@ router.post("/", controller.addViaggio);
 
 router.delete("/:idv", controller.deleteViaggio);
 
-router.put("/:idv", controller.updateViaggio);
-
 module.exports = router;
