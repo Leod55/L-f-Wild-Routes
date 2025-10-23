@@ -18,6 +18,7 @@ const getViaggioById = (req, res) => {
 
 const addViaggio = (req, res) => {
   const {
+    idv,
     nome,
     data_partenza,
     data_arrivo,
@@ -28,7 +29,7 @@ const addViaggio = (req, res) => {
     foto_viaggio,
   } = req.body;
 
-  pool.query(queries.getViaggioById, [nome], (error, results) => {
+  pool.query(queries.getViaggioById, [idv], (error, results) => {
     if (error) throw error;
     if (results.rows.length > 0) {
       res.status(400).send("Il viaggio è gia presente nel database");
@@ -36,6 +37,7 @@ const addViaggio = (req, res) => {
       pool.query(
         queries.addViaggio,
         [
+          idv,
           nome,
           data_partenza,
           data_arrivo,
@@ -55,7 +57,17 @@ const addViaggio = (req, res) => {
 };
 
 const deleteViaggio = (req, res) => {
-  const idv = parseInt(res.params.idv);
+  const {
+    idv,
+    nome,
+    data_partenza,
+    data_arrivo,
+    accompagnatore,
+    prezzo,
+    descrizione,
+    extra,
+    foto_viaggio,
+  } = req.body;
 
   pool.query(queries.deleteViaggio, [idv], (error, results) => {
     if (error) throw error;
@@ -67,9 +79,59 @@ const deleteViaggio = (req, res) => {
   });
 };
 
+const updateViaggio = (req, res) => {
+  /*Mi prendo i dati dal corpo della richiesta*/
+
+  const {
+    idv,
+    nome,
+    data_partenza,
+    data_arrivo,
+    accompagnatore,
+    prezzo,
+    descrizione,
+    extra,
+    foto_viaggio,
+  } = req.body;
+
+  /*Controllo se il viaggio c'è già nel database*/
+
+  pool.query(queries.getViaggioById, [idv], (error, results) => {
+    if (error) throw error;
+
+    /*se results.rows è vuoto significa che non c'è il viaggio nel database*/
+
+    if (results.rows.length === 0) {
+      res
+        .status(404)
+        .send("Impossibile aggiornare: viaggio non trovato nel database.");
+    } else {
+      pool.query(
+        queries.updateViaggio,
+        [
+          idv,
+          nome,
+          data_partenza,
+          data_arrivo,
+          accompagnatore,
+          prezzo,
+          descrizione,
+          extra,
+          foto_viaggio,
+        ],
+        (error) => {
+          if (error) throw error;
+          res.status(200).send("Viaggio aggiornato");
+        }
+      );
+    }
+  });
+};
+
 module.exports = {
   getViaggiList,
   getViaggioById,
   addViaggio,
   deleteViaggio,
+  updateViaggio,
 };
