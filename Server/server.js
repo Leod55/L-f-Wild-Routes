@@ -9,5 +9,5 @@ app.use("/viaggi", viaggiRoutes);
 app.listen(port, () => console.log(`app listening on port ${port}!`));
 
 app.get("/", (req, res) => {
-  res.send("Benvenuti su L&F Wild ROutes!");
+  res.send("Benvenuti su L&F Wild Routes!");
 });

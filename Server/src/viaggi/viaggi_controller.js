@@ -9,16 +9,19 @@ const getViaggiList = (req, res) => {
 };
 
 const getViaggioById = (req, res) => {
-  const idv = parseInt(res.params.idv);
+  /*Prendo l'id del viaggio (idv) dalla richiesta e lo converto in intero*/
+  const idv = parseInt(req.params.idv);
+
+  /*Utilizzo la query getViaggioById passando l'id del viaggio (idv) come parametro*/
   pool.query(queries.getViaggioById, [idv], (error, results) => {
     if (error) throw error;
-    res.status(200).json(results.rows);
+    res.status(200).json(results.rows); //FATTI SPIEGARE BENE QUESTA RIGA
   });
 };
 
 const addViaggio = (req, res) => {
+  /*Prendo i dati del viaggio dalla richiesta*/
   const {
-    idv,
     nome,
     data_partenza,
     data_arrivo,
@@ -29,15 +32,18 @@ const addViaggio = (req, res) => {
     foto_viaggio,
   } = req.body;
 
-  pool.query(queries.getViaggioById, [idv], (error, results) => {
+  //qui posso provare a prendere anche l'id oppure mi creo getViaggioByNome
+  pool.query(queries.getViaggioByNome, [nome], (error, results) => {
     if (error) throw error;
+
+    /*Se la query da qualche riga come risultato significa che il viaggio è gia nel database*/
     if (results.rows.length > 0) {
       res.status(400).send("Il viaggio è gia presente nel database");
     } else {
+      /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
         queries.addViaggio,
         [
-          idv,
           nome,
           data_partenza,
           data_arrivo,
@@ -57,73 +63,16 @@ const addViaggio = (req, res) => {
 };
 
 const deleteViaggio = (req, res) => {
-  const {
-    idv,
-    nome,
-    data_partenza,
-    data_arrivo,
-    accompagnatore,
-    prezzo,
-    descrizione,
-    extra,
-    foto_viaggio,
-  } = req.body;
+  const idv = parseInt(req.params.idv);
 
   pool.query(queries.deleteViaggio, [idv], (error, results) => {
     if (error) throw error;
+
+    /*Se non ci sono righe significa che il viaggio da eliminare non c'è*/
     if (results.rowCount === 0) {
       res.status(404).send("Viaggio non trovato");
     } else {
       res.status(200).send("Viaggio eliminato");
-    }
-  });
-};
-
-const updateViaggio = (req, res) => {
-  /*Mi prendo i dati dal corpo della richiesta*/
-
-  const {
-    idv,
-    nome,
-    data_partenza,
-    data_arrivo,
-    accompagnatore,
-    prezzo,
-    descrizione,
-    extra,
-    foto_viaggio,
-  } = req.body;
-
-  /*Controllo se il viaggio c'è già nel database*/
-
-  pool.query(queries.getViaggioById, [idv], (error, results) => {
-    if (error) throw error;
-
-    /*se results.rows è vuoto significa che non c'è il viaggio nel database*/
-
-    if (results.rows.length === 0) {
-      res
-        .status(404)
-        .send("Impossibile aggiornare: viaggio non trovato nel database.");
-    } else {
-      pool.query(
-        queries.updateViaggio,
-        [
-          idv,
-          nome,
-          data_partenza,
-          data_arrivo,
-          accompagnatore,
-          prezzo,
-          descrizione,
-          extra,
-          foto_viaggio,
-        ],
-        (error) => {
-          if (error) throw error;
-          res.status(200).send("Viaggio aggiornato");
-        }
-      );
     }
   });
 };
@@ -133,5 +82,4 @@ module.exports = {
   getViaggioById,
   addViaggio,
   deleteViaggio,
-  updateViaggio,
 };
