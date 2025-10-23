@@ -1,99 +1,65 @@
 const pool = require("../../db");
 const queries = require("./viaggi_queries");
 
-// controlli (adatta i limiti se modifichi lo schema DB)
-function checkLengths(body) {
-  const limits = {
-    nome: 200,
-    accompagnatore: 200,
-    descrizione: 2000,
-    extra: 200,
-    foto_viaggio: 200,
-  };
-  const tooLong = [];
-  for (const [field, max] of Object.entries(limits)) {
-    const val = body[field];
-    if (typeof val === "string" && val.length > max) {
-      tooLong.push({ field, length: val.length, max });
-    }
-  }
-  return tooLong;
-}
-
-const getViaggiList = async (req, res) => {
-  console.log("GET /viaggi - start");
-  try {
-    const result = await pool.query(queries.getViaggi);
-    console.log("GET /viaggi - query OK, rows:", result.rowCount);
-    return res.status(200).json(result.rows);
-  } catch (error) {
-    console.error("GET /viaggi - DB error:", error);
-    return res.status(500).json({ error: "Errore server" });
-  }
-};
-
-const getViaggioById = async (req, res) => {
-  console.log("GET /viaggi/:id - start", req.params);
-  const idv = parseInt(req.params.id, 10);
-  if (Number.isNaN(idv))
-    return res.status(400).json({ error: "id non valido" });
-  try {
-    const result = await pool.query(queries.getViaggioById, [idv]);
-    console.log("GET /viaggi/:id - query OK, rows:", result.rowCount);
-    return res.status(200).json(result.rows);
-  } catch (error) {
-    console.error("GET /viaggi/:id - DB error:", error);
-    return res.status(500).json({ error: "Errore server" });
-  }
-};
-
-const addViaggio = async (req, res) => {
-  console.log("POST /viaggi - start", {
-    bodyPreview: req.body && Object.keys(req.body),
+const getViaggiList = (req, res) => {
+  pool.query(queries.getViaggi, (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
   });
-  try {
-    const {
-      nome,
-      data_partenza,
-      data_arrivo,
-      accompagnatore,
-      prezzo,
-      descrizione,
-      extra,
-      foto_viaggio,
-    } = req.body;
+};
 
-    if (!nome) return res.status(400).json({ error: "campo 'nome' richiesto" });
+const getViaggioById = (req, res) => {
+  /*Prendo l'id del viaggio (idv) dalla richiesta e lo converto in intero*/
+  const idv = parseInt(req.params.idv);
 
-    const tooLong = checkLengths(req.body);
-    if (tooLong.length > 0) {
-      console.warn("POST /viaggi - campi troppo lunghi:", tooLong);
-      return res
-        .status(400)
-        .json({ error: "Campi troppo lunghi", details: tooLong });
+  /*Utilizzo la query getViaggioById passando l'id del viaggio (idv) come parametro*/
+  pool.query(queries.getViaggioById, [idv], (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows); //FATTI SPIEGARE BENE QUESTA RIGA
+  });
+};
+
+const addViaggio = (req, res) => {
+  /*Prendo i dati del viaggio dalla richiesta*/
+  const {
+    nome,
+    data_partenza,
+    data_arrivo,
+    accompagnatore,
+    prezzo,
+    descrizione,
+    extra,
+    foto_viaggio,
+  } = req.body;
+
+  //qui posso provare a prendere anche l'id oppure mi creo getViaggioByNome
+  pool.query(queries.getViaggioByNome, [nome], (error, results) => {
+    if (error) throw error;
+
+    /*Se la query da qualche riga come risultato significa che il viaggio è gia nel database*/
+    if (results.rows.length > 0) {
+      res.status(400).send("Il viaggio è gia presente nel database");
+    } else {
+      /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
+      pool.query(
+        queries.addViaggio,
+        [
+          nome,
+          data_partenza,
+          data_arrivo,
+          accompagnatore,
+          prezzo,
+          descrizione,
+          extra,
+          foto_viaggio,
+        ],
+        (error) => {
+          if (error) throw error;
+          res.status(201).send("Viaggio aggiunto correttamente al database");
+        }
+      );
     }
-
-    console.log("POST /viaggi - executing INSERT...");
-    const result = await pool.query(queries.addViaggio, [
-      nome,
-      data_partenza,
-      data_arrivo,
-      accompagnatore,
-      prezzo,
-      descrizione,
-      extra,
-      foto_viaggio,
-    ]);
-    console.log("POST /viaggi - INSERT OK, returning:", result.rows[0]);
-    return res
-      .status(201)
-      .json({ message: "Viaggio aggiunto", inserted: result.rows[0] || null });
-  } catch (error) {
-    console.error("POST /viaggi - error:", error);
-    return res
-      .status(500)
-      .json({ error: "Errore inserimento DB", details: error.message });
-  }
+  });
 };
 
 const deleteViaggio = (req, res) => {
