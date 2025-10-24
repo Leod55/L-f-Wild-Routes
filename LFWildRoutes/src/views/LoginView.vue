@@ -29,7 +29,7 @@
 <style>
 #login_form {
   text-align: center;
-  background: var(--primary);
+  background: rgba(var(--primary-rgb), 0.6);
   box-shadow: 10px 10px 40px var(--black);
   border-radius: 20px;
 
@@ -72,7 +72,17 @@
 }
 
 #login_form input[type="submit"]:hover {
-  background: var(--black);
+  /*background: var(--black);
   color: var(--secondary);
+  box-shadow: 10px 10px 40px var(--black);*/
+  background-color: var(--black); /* verde di prima */
+  box-shadow: 10px 10px 40px var(--black);
+
+  color: var(--secondary);
+
+  padding: 15px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative; /* serve per sovraimpressione */
 }
 </style>

@@ -2,7 +2,7 @@
 
 <template>
   <article class="section_article col-12">
-    <h3 class="section_title">Grecia: 6 giorni di sogno</h3>
+    <h3 class="section_title">Grecia: 6 giorni da sogno</h3>
 
     <hr />
 

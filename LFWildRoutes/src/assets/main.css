@@ -95,7 +95,6 @@ aside {
   border-radius: 20px;
   margin: 0;
   height: 15cm;
-  margin-top: 150px;
 }
 
 h1,
@@ -118,7 +117,7 @@ h6 {
 /*-------------------------------------------PAGE SECTIONS-----------------------------------------------------------*/
 
 .main_div {
-  margin: 40px 0;
+  margin: 20px 0;
   padding: 0 10px;
 }
 

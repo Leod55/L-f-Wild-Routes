@@ -12,8 +12,4 @@
   </article>
 </template>
 
-<style>
-.ad_article {
-  margin-top: 150px;
-}
-</style>
+<style></style>

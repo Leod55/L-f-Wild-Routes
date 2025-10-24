@@ -1,16 +1,19 @@
 :root {
   --primary: #3ec66b;
-  --primary-rgb: 161, 66, 22;
+  --primary-rgb: 62, 198, 107;
 
   --secondary: #f3fbf6;
-  --secondary-rgb: 228, 214, 197;
+  --secondary-rgb: 243, 251, 246;
 
   /*
   #984216
+  161, 66, 22
 
   #e4d6c5
+  228, 214, 197
 
   #78898f
+  120, 137, 143
 
   #28514e
 
