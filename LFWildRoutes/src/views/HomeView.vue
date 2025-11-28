@@ -8,23 +8,23 @@ export default {
   },
   data() {
     return {
-      viaggi: [],
+      viaggio: null,
     };
   },
   methods: {
-    async getViaggi() {
-      const data = await Api.getViaggi();
-      this.viaggi = data;
+    async getViaggioById() {
+      const data = await Api.getViaggioById(1);
+      this.viaggio = data[0];
     },
   },
   mounted() {
-    this.getViaggi();
+    this.getViaggioById();
   },
 };
 </script>
 
 <template>
-  <article v-for="viaggio in viaggi" :key="viaggi.idv" class="col-6 main_div">
+  <article class="col-6 main_div">
     <div class="home_titles">
       <h1>L&F WildRoutes HOME</h1>
 
@@ -36,7 +36,7 @@ export default {
       di ogni tipo: <br />
       dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
     </p>
-    <div>
+    <div v-if="viaggio">
       <DestinationCard
         :nome="viaggio.nome"
         :data_partenza="viaggio.data_partenza"

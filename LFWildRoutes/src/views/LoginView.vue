@@ -30,7 +30,7 @@
 #login_form {
   text-align: center;
   background: rgba(var(--primary-rgb), 0.6);
-  box-shadow: 10px 10px 40px var(--black);
+  box-shadow: 0 2px 10px 0;
   border-radius: 20px;
 
   color: var(--black);

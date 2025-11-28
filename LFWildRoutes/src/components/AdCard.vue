@@ -12,4 +12,8 @@
   </article>
 </template>
 
-<style></style>
+<style>
+.ad_article {
+  text-align: center;
+}
+</style>
