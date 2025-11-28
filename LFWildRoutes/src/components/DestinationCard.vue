@@ -36,7 +36,10 @@ export default {
   },
   methods: {
     getUrlImg() {
-      return new URL(`../img/viggi/${this.foto_viaggio}`, import.meta.url);
+      return new URL(
+        `../assets/img/viaggi/${this.foto_viaggio}`,
+        import.meta.url
+      );
     },
   },
 };
