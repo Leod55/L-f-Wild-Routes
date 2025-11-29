@@ -51,7 +51,7 @@ export default {
 
     <hr />
 
-    <div class="section_content row">
+    <div class="section_content">
       <div class="col-6 img_section">
         <img :src="getUrlImg()" alt="img_viaggio" />
       </div>
