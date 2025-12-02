@@ -18,6 +18,6 @@
 
 <style>
 aside > h3 {
-  color: var(--secondary);
+  color: var(--primary);
 }
 </style>

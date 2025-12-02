@@ -91,10 +91,10 @@ footer {
 
 aside {
   text-align: center;
-  background: var(--tertiary);
+  background: var(--secondary);
+  box-shadow: 0 0 0 0z;
   border-radius: 20px;
-  margin: 0;
-  height: 15cm;
+  color: var(--black);
 }
 
 /*-------------------------------------------TITLES-----------------------------------------------------------*/

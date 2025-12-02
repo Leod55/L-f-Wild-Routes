@@ -15,6 +15,25 @@ const login = (req, res) => {
   });
 };
 
+const logout = (req, res) => {
+  if (req.session.userId) {
+    req.session.destroy();
+    res.status(200).json({ message: "Logout effettuato" });
+  } else {
+    res.status(400).json({ message: "Non sei loggato" });
+  }
+};
+
+const isLogged = (req, res) => {
+  if (req.session.userId) {
+    res.status(200).json(req.session);
+  } else {
+    res.status(401).json({ message: "Non sei loggato" });
+  }
+};
+
 module.exports = {
   login,
+  logout,
+  isLogged,
 };

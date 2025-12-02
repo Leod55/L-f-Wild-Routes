@@ -1,40 +1,69 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import DestinationsView from '@/views/DestinationsView.vue'
-import WhoView from '@/views/WhoView.vue'
-import LoginView from '@/views/LoginView.vue'
-import NewTripView from '@/views/NewTripView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import DestinationsView from "@/views/DestinationsView.vue";
+import WhoView from "@/views/WhoView.vue";
+import LoginView from "@/views/LoginView.vue";
+import NewTripView from "@/views/NewTripView.vue";
+import ProfileView from "@/views/ProfileView.vue";
+
+import * as Auth from "@/utils/auth.js";
+import { useSessionStore } from "@/stores/session";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: HomeView,
     },
     {
-      path: '/who',
-      name: 'who',
+      path: "/who",
+      name: "who",
       component: WhoView,
     },
     {
-      path: '/destinations',
-      name: 'destinations',
+      path: "/destinations",
+      name: "destinations",
       component: DestinationsView,
     },
     {
-      path: '/login',
-      name: 'login',
+      path: "/login",
+      name: "login",
       component: LoginView,
     },
     {
-      path: '/newtrip',
-      name: 'newtrip',
+      path: "/newtrip",
+      name: "newtrip",
       component: NewTripView,
     },
-
+    {
+      path: "/profile",
+      name: "profile",
+      component: ProfileView,
+      meta: { requiresAuth: true },
+    },
   ],
-})
+});
 
-export default router
+router.beforeEach(async (to, from, next) => {
+  const sessionStore = useSessionStore();
+
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    const userId = sessionStore.getUser();
+    const data = await Auth.isLogged();
+
+    if (userId === null || userId !== data.userId) {
+      next({
+        path: "/login",
+        query: { redirect: to.fullPath },
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;

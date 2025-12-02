@@ -1,5 +1,26 @@
 <script>
 import { RouterLink } from "vue-router";
+import { useSessionStore } from "@/stores/session.js";
+
+export default {
+  components: {
+    RouterLink,
+  },
+  data() {
+    return {
+      sessionStore: useSessionStore(),
+    };
+  },
+  methods: {
+    checkUser() {
+      if (this.sessionStore.getUser() == null) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+  },
+};
 </script>
 
 <template>
@@ -8,8 +29,11 @@ import { RouterLink } from "vue-router";
       <li><RouterLink to="/">HOME</RouterLink></li>
       <li><RouterLink to="/destinations">DESTINATIONS</RouterLink></li>
       <li><RouterLink to="/newtrip">NEWTRIP</RouterLink></li>
-      <li><RouterLink to="/login">LOGIN</RouterLink></li>
       <li><RouterLink to="/who">WHO</RouterLink></li>
+      <li v-show="!checkUser()"><RouterLink to="/login">LOGIN</RouterLink></li>
+      <li v-show="checkUser()">
+        <RouterLink to="/profile">PROFILE</RouterLink>
+      </li>
     </ul>
   </nav>
 </template>

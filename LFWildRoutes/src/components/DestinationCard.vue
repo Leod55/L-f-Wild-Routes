@@ -31,7 +31,7 @@ export default {
     },
     foto_viaggio: {
       type: String,
-      default: "fdsfdsfdsfdsfdsfdsf",
+      default: "defaultimg.jpg",
     },
   },
   methods: {
