@@ -37,4 +37,9 @@ const addViaggio = async (
   return await response.json();
 };
 
-export { getViaggioById, getViaggi, addViaggio };
+const getUtenti = async () => {
+  const response = await fetch(`/api/utenti`);
+  return await response.json();
+};
+
+export { getViaggioById, getViaggi, addViaggio, getUtenti };

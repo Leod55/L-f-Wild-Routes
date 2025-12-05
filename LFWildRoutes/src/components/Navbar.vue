@@ -28,9 +28,11 @@ export default {
     <ul>
       <li><RouterLink to="/">HOME</RouterLink></li>
       <li><RouterLink to="/destinations">DESTINATIONS</RouterLink></li>
-      <li><RouterLink to="/newtrip">NEWTRIP</RouterLink></li>
       <li><RouterLink to="/who">WHO</RouterLink></li>
       <li v-show="!checkUser()"><RouterLink to="/login">LOGIN</RouterLink></li>
+      <li v-show="checkUser()">
+        <RouterLink to="/newtrip">NEWTRIP</RouterLink>
+      </li>
       <li v-show="checkUser()">
         <RouterLink to="/profile">PROFILE</RouterLink>
       </li>

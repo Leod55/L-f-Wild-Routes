@@ -36,6 +36,7 @@ const router = createRouter({
       path: "/newtrip",
       name: "newtrip",
       component: NewTripView,
+      meta: { requiresAuth: true },
     },
     {
       path: "/profile",

@@ -50,66 +50,61 @@ export default {
   <div class="col-6 main_div">
     <h1 id="newtrip_title">Inserisci un nuovo viaggio</h1>
 
-    <form action="newtrip" method="POST">
-      <div>
+    <form class="forms" action="newtrip" method="POST">
+      <div class="form_section">
         <label for="nome"> Nome: </label> <br />
-        <input type="text" id="nome" name="nome" v-model="nome" /> <br />
+        <input type="text" id="nome" name="nome" v-model="nome" />
       </div>
 
-      <div>
-        <label for="date"> Data di partenza: </label> <br />
+      <div class="form_section">
+        <label for="date"> Data di partenza: </label>
         <input type="date" id="date_p" name="date_p" v-model="data_partenza" />
         <br />
       </div>
 
-      <div>
-        <label for="date"> Data di ritorno: </label> <br />
+      <div class="form_section">
+        <label for="date"> Data di ritorno: </label>
         <input type="date" id="date_r" name="date_r" v-model="data_arrivo" />
-        <br />
       </div>
 
-      <div>
-        <label for="accompagnatore"> Accompagnatore: </label> <br />
+      <div class="form_section">
+        <label for="accompagnatore"> Accompagnatore: </label>
         <input
           type="text"
           id="accompagnatore"
           name="accompagnatore"
           v-model="accompagnatore"
         />
-        <br />
       </div>
 
-      <div>
-        <label for="prezzo"> Prezzo: </label> <br />
+      <div class="form_section">
+        <label for="prezzo"> Prezzo: </label>
         <input type="number" id="prezzo" name="prezzo" v-model="prezzo" />
-        <br />
       </div>
 
-      <div>
-        <label for="description"> Descrizione: </label> <br />
+      <div class="form_section">
+        <label for="description"> Descrizione: </label>
         <textarea
           id="description"
           name="description"
           rows="4"
-          cols="50"
+          cols="30"
           v-model="descrizione"
         ></textarea>
-        <br />
       </div>
 
-      <div>
+      <div class="form_section">
         <label for="extra"> Extra: </label> <br />
         <textarea
           id="extra"
           name="extra"
           rows="4"
-          cols="50"
+          cols="30"
           v-model="extra"
         ></textarea>
-        <br />
       </div>
 
-      <div>
+      <div class="form_section">
         <input
           type="submit"
           value="Inserisci viaggio"

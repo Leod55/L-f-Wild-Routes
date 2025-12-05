@@ -15,7 +15,7 @@ export default {
       const data = await Auth.login(this.username, this.password);
 
       if (data.userId) {
-        useSessionStore().setUserId(data.userId);
+        useSessionStore().setUser(data.userId);
         this.$router.push("/");
       } else {
         alert("Login failed");
@@ -30,7 +30,7 @@ export default {
     <h1 id="login_title">Login</h1>
 
     <div>
-      <form id="login_form" action="login" method="POST">
+      <form class="forms" action="login" method="POST">
         <div class="form_section">
           <label for="username"> Username </label>
           <input type="text" id="username" name="username" v-model="username" />
@@ -57,7 +57,7 @@ export default {
 </template>
 
 <style>
-#login_form {
+.forms {
   text-align: center;
   background: rgba(var(--primary-rgb), 0.6);
   box-shadow: 0 2px 10px 0;
@@ -86,14 +86,14 @@ export default {
   margin: 40px 0;
 }
 
-#login_form input {
+.forms input {
   display: block;
   width: 66%;
   margin-left: 16%;
   margin-top: 3%;
 }
 
-#login_form input[type="submit"] {
+.forms input[type="submit"] {
   background: var(--secondary);
   font-weight: bold;
   cursor: pointer;
@@ -101,7 +101,7 @@ export default {
   padding: 15px;
 }
 
-#login_form input[type="submit"]:hover {
+.forms input[type="submit"]:hover {
   /*background: var(--black);
   color: var(--secondary);
   box-shadow: 10px 10px 40px var(--black);*/
