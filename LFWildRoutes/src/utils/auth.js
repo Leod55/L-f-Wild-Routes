@@ -1,3 +1,5 @@
+import { useSessionStore } from "@/stores/session";
+
 const login = async (username, password) => {
   const response = await fetch("api/session/login", {
     method: "POST",
@@ -21,8 +23,14 @@ const logout = async () => {
 };
 
 const isLogged = async () => {
+  const store = useSessionStore();
+
   const response = await fetch("api/session/isLogged");
-  return await response.json();
+  if (response.ok) {
+    return await response.json();
+  } else {
+    store.setUser(null);
+  }
 };
 
 export { login, logout, isLogged };
