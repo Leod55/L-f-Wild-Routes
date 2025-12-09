@@ -9,7 +9,7 @@ export default {
       type: Date,
       required: true,
     },
-    data_arrivo: {
+    data_ritorno: {
       type: Date,
       required: true,
     },
@@ -60,7 +60,7 @@ export default {
         <section>
           <h4>Date:</h4>
 
-          <p>Dal {{ data_partenza }} al {{ data_arrivo }}</p>
+          <p>Dal {{ data_partenza }} al {{ data_ritorno }}</p>
         </section>
 
         <!--Aggiungere, oltre al link per la pagina who, anche direttamente il collegamento al punto con id giusto (GuideCard di Francesca)-->

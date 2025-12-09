@@ -31,7 +31,7 @@ export default {
       <DestinationCard
         :nome="viaggio.nome"
         :data_partenza="viaggio.data_partenza"
-        :data_arrivo="viaggio.data_arrivo"
+        :data_ritorno="viaggio.data_ritorno"
         :accompagnatore="viaggio.accompagnatore"
         :prezzo="viaggio.prezzo"
         :descrizione="viaggio.descrizione"

@@ -53,6 +53,41 @@ export default {
 
       <!--<form id="login_form" action="signup" method="POST"></form>-->
     </div>
+
+    <!-- <h1 id="login_title">Registrati</h1>
+
+    <div>
+      <form class="forms" action="login" method="POST">
+        <div class="form_section">
+          <label for="username"> Username </label>
+          <input type="text" id="username" name="username" v-model="username" />
+        </div>
+
+        <div class="form_section">
+          <label for="password"> Password </label> <br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            v-model="password"
+          />
+        </div>
+
+        <div class="form_section">
+          <label for="password"> Confirm password </label> <br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            v-model="password"
+          />
+        </div>
+
+        <div class="form_section">
+          <input type="submit" value="Accedi" @click.stop.prevent="login()" />
+        </div>
+      </form>
+    </div> -->
   </div>
 </template>
 
@@ -83,10 +118,12 @@ export default {
 }
 
 .form_section {
-  margin: 40px 0;
+  margin: 40px 10px;
 }
 
-.forms input {
+.forms input,
+select,
+textarea {
   display: block;
   width: 66%;
   margin-left: 16%;
@@ -97,7 +134,7 @@ export default {
   background: var(--secondary);
   font-weight: bold;
   cursor: pointer;
-
+  border-radius: 5px;
   padding: 15px;
 }
 

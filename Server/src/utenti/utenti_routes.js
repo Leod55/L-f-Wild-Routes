@@ -6,6 +6,7 @@ const router = Router();
 //GET VIAGGI
 
 router.get("/", controllerUtenti.getUtentiList);
+router.get('/:username', controllerUtenti.getUtenteByUsername);
 
 //POST VIAGGI
 

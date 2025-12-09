@@ -26,6 +26,7 @@ const router = createRouter({
       path: "/destinations",
       name: "destinations",
       component: DestinationsView,
+      meta: { requiresAuth: true },
     },
     {
       path: "/login",

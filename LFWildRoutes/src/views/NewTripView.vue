@@ -1,6 +1,7 @@
 <script>
 import { useSessionStore } from "@/stores/session";
 import { getActivePinia } from "pinia";
+import * as Api from "@/utils/apis.js";
 
 export default {
   data() {
@@ -8,7 +9,7 @@ export default {
       idv: 0,
       nome: "",
       data_partenza: "",
-      data_arrivo: "",
+      data_ritorno: "",
       accompagnatore: "",
       prezzo: 0,
       descrizione: "",
@@ -21,9 +22,7 @@ export default {
   },
   methods: {
     async addViaggio() {
-      this.getViaggioId();
-      const data = await Api.addViaggo(
-        this.idv,
+      const data = await Api.addViaggio(
         this.nome,
         this.data_partenza,
         this.data_arrivo,
@@ -57,24 +56,28 @@ export default {
       </div>
 
       <div class="form_section">
-        <label for="date"> Data di partenza: </label>
-        <input type="date" id="date_p" name="date_p" v-model="data_partenza" />
+        <label for="data_p"> Data di partenza: </label>
+        <input type="date" id="data_p" name="data_p" v-model="data_partenza" />
         <br />
       </div>
 
       <div class="form_section">
-        <label for="date"> Data di ritorno: </label>
-        <input type="date" id="date_r" name="date_r" v-model="data_arrivo" />
+        <label for="data_r"> Data di ritorno: </label>
+        <input type="date" id="data_r" name="data_r" v-model="data_ritorno" />
       </div>
 
       <div class="form_section">
         <label for="accompagnatore"> Accompagnatore: </label>
-        <input
-          type="text"
+        <select
           id="accompagnatore"
           name="accompagnatore"
           v-model="accompagnatore"
-        />
+        >
+          <option value="Leo">Leo</option>
+          <option value="Kate">Kate</option>
+          <option value="Nick">Nick</option>
+          <option value="Guerri">Guerri</option>
+        </select>
       </div>
 
       <div class="form_section">

@@ -25,6 +25,10 @@ export default {
       type: Date,
       required: true,
     },
+    bio: {
+      type: String,
+      required: true,
+    },
     foto_utente: {
       type: String,
       default: "defaultimg.jpg",
@@ -76,6 +80,11 @@ export default {
         <section>
           <h4>Data nascita:</h4>
           <p>{{ data_nascita }}</p>
+        </section>
+
+        <section>
+          <h4>Bio:</h4>
+          <p>{{ bio }}</p>
         </section>
       </div>
     </div>

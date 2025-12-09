@@ -8,10 +8,15 @@ const getViaggi = async () => {
   return await response.json();
 };
 
+const getUtenteByUsername = async (username) => {
+  const response = await fetch(`/api/utenti/${username}`);
+  return await response.json();
+};
+
 const addViaggio = async (
   nome,
   data_partenza,
-  data_arrivo,
+  data_ritorno,
   accompagnatore,
   prezzo,
   descrizione,
@@ -26,7 +31,7 @@ const addViaggio = async (
     body: JSON.stringify({
       nome,
       data_partenza,
-      data_arrivo,
+      data_ritorno,
       accompagnatore,
       prezzo,
       descrizione,
@@ -42,4 +47,10 @@ const getUtenti = async () => {
   return await response.json();
 };
 
-export { getViaggioById, getViaggi, addViaggio, getUtenti };
+export {
+  getViaggioById,
+  getViaggi,
+  getUtenteByUsername,
+  addViaggio,
+  getUtenti,
+};

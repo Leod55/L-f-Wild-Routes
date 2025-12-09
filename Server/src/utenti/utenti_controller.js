@@ -18,6 +18,7 @@ const addUtente = (req, res) => {
     email,
     citta,
     data_nascita,
+    bio,
     ruolo,
   } = req.body;
 
@@ -31,7 +32,17 @@ const addUtente = (req, res) => {
       /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
         queries.addUtente,
-        [username, password, nome, cognome, email, citta, data_nascita, ruolo],
+        [
+          username,
+          password,
+          nome,
+          cognome,
+          email,
+          citta,
+          data_nascita,
+          bio,
+          ruolo,
+        ],
         (error) => {
           if (error) throw error;
           res.status(201).send("Utente aggiunto correttamente al database");
@@ -56,8 +67,21 @@ const deleteUtente = (req, res) => {
   });
 };
 
+const getUtenteByUsername = (req, res) => {
+  const username = req.params.username;
+  pool.query(queries.getUtenteByUsernameQ, [username], (err, result) => {
+    if (err) throw err;
+    if (result.rows.length > 0) {
+      res.status(200).json(result.rows[0]);
+    } else {
+      res.status(404).json({ message: "Utente non trovato" });
+    }
+  });
+};
+
 module.exports = {
   getUtentiList,
   addUtente,
   deleteUtente,
+  getUtenteByUsername,
 };

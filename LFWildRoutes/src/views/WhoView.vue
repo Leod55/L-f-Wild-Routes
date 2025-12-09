@@ -32,15 +32,18 @@ export default {
     <h1>Noi di L&F WildRoutes</h1>
 
     <div v-for="utente in utenti" :key="utente.username">
-      <GuideCard
-        :username="utente.username"
-        :nome="utente.nome"
-        :cognome="utente.cognome"
-        :email="utente.email"
-        :citta="utente.citta"
-        :data_nascita="utente.data_nascita"
-      >
-      </GuideCard>
+      <div v-if="utente.ruolo === 'admin'">
+        <GuideCard
+          :username="utente.username"
+          :nome="utente.nome"
+          :cognome="utente.cognome"
+          :email="utente.email"
+          :citta="utente.citta"
+          :data_nascita="utente.data_nascita"
+          :bio="utente.bio"
+        >
+        </GuideCard>
+      </div>
     </div>
   </div>
 </template>

@@ -15,7 +15,7 @@ const getViaggioById = (req, res) => {
   /*Utilizzo la query getViaggioById passando l'id del viaggio (idv) come parametro*/
   pool.query(queries.getViaggioById, [idv], (error, results) => {
     if (error) throw error;
-    res.status(200).json(results.rows); //FATTI SPIEGARE BENE QUESTA RIGA
+    res.status(200).json(results.rows); 
   });
 };
 
@@ -24,7 +24,7 @@ const addViaggio = (req, res) => {
   const {
     nome,
     data_partenza,
-    data_arrivo,
+    data_ritorno,
     accompagnatore,
     prezzo,
     descrizione,
@@ -38,7 +38,9 @@ const addViaggio = (req, res) => {
 
     /*Se la query da qualche riga come risultato significa che il viaggio è gia nel database*/
     if (results.rows.length > 0) {
-      res.status(400).send("Il viaggio è gia presente nel database");
+      res
+        .status(400)
+        .json({ message: "Il viaggio è già presente nel database" });
     } else {
       /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
@@ -46,7 +48,7 @@ const addViaggio = (req, res) => {
         [
           nome,
           data_partenza,
-          data_arrivo,
+          data_ritorno,
           accompagnatore,
           prezzo,
           descrizione,
@@ -55,7 +57,7 @@ const addViaggio = (req, res) => {
         ],
         (error) => {
           if (error) throw error;
-          res.status(201).send("Viaggio aggiunto correttamente al database");
+          res.status(201).json({ message: "Viaggio aggiunto con successo" });
         }
       );
     }
@@ -70,9 +72,9 @@ const deleteViaggio = (req, res) => {
 
     /*Se non ci sono righe significa che il viaggio da eliminare non c'è*/
     if (results.rowCount === 0) {
-      res.status(404).send("Viaggio non trovato");
+      res.status(404).json({ message: "Viaggio non trovato" });
     } else {
-      res.status(200).send("Viaggio eliminato");
+      res.status(200).json({ message: "Viaggio eliminato con successo" });
     }
   });
 };
