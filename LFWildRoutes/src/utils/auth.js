@@ -23,14 +23,8 @@ const logout = async () => {
 };
 
 const isLogged = async () => {
-  const store = useSessionStore();
-
-  const response = await fetch("api/session/isLogged");
-  if (response.ok) {
-    return await response.json();
-  } else {
-    store.setUser(null);
-  }
+  const response = await fetch("api/session/islogged");
+  return await response.json();
 };
 
 export { login, logout, isLogged };
