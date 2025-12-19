@@ -11,6 +11,9 @@ export default {
       username: "",
 
       sessionStore: useSessionStore(),
+      passwordFormVisible: false,
+      vecchiaPassword: "",
+      nuovaPassword: "",
     };
   },
   methods: {
@@ -33,7 +36,44 @@ export default {
         import.meta.url
       );
     },
+
+    togglePasswordForm() {
+      this.passwordFormVisible = !this.passwordFormVisible;
+    },
+    async aggiornaPassword() {
+      this.passwordError = "";
+      this.passwordSuccess = "";
+
+      if (this.nuovaPassword === this.vecchiaPassword) {
+        this.passwordError =
+          "La nuova password deve essere diversa dalla vecchia.";
+        return;
+      }
+      if (this.nuovaPassword.length < 5) {
+        // Basic validation
+        this.passwordError =
+          "La nuova password è troppo corta (min 5 caratteri).";
+        return;
+      }
+
+      const result = await Api.aggiornaPassword(
+        this.username,
+        this.vecchiaPassword,
+        this.nuovaPassword
+      );
+      if (result.ok) {
+        this.passwordSuccess = "Password aggiornata con successo!";
+        this.vecchiaPassword = "";
+        this.nuovaPassword = "";
+        setTimeout(() => {
+          this.passwordFormVisible = false;
+        }, 2000);
+      } else {
+        this.passwordError = result.message;
+      }
+    },
   },
+
   mounted() {
     this.getUser();
     this.getUserInfo();
@@ -85,6 +125,28 @@ export default {
             <h4>Bio:</h4>
             <p>{{ user.bio }}</p>
           </section>
+
+          <section>
+            <button @click="togglePasswordForm()">Cambia Password</button>
+          </section>
+
+          <div v-if="passwordFormVisible">
+            <h3>Cambia Password</h3>
+
+            <section>
+              <label>Vecchia Password:</label>
+              <input type="password" v-model="vecchiaPassword" />
+            </section>
+
+            <section>
+              <label>Nuova Password:</label>
+              <input type="password" v-model="nuovaPassword" />
+            </section>
+
+            <section>
+              <button @click="aggiornaPassword()">Aggiorna</button>
+            </section>
+          </div>
 
           <button @click="logout()">Logout</button>
         </div>

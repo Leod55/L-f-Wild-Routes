@@ -3,17 +3,20 @@ const controllerUtenti = require("./utenti_controller");
 
 const router = Router();
 
-//GET VIAGGI
+//GET UTENTI
 
 router.get("/", controllerUtenti.getUtentiList);
-router.get('/:username', controllerUtenti.getUtenteByUsername);
+router.get("/:username", controllerUtenti.getUtenteByUsername);
 
-//POST VIAGGI
+//POST UTENTI
 
 router.post("/", controllerUtenti.addUtente);
 
-//DELETE VIAGGI
+//DELETE UTENTI
 
-router.delete("/:idv", controllerUtenti.deleteUtente);
+router.delete("/:username", controllerUtenti.deleteUtente);
+
+// PUT
+router.put("/:password", controllerUtenti.aggiornaPassword);
 
 module.exports = router;

@@ -10,6 +10,8 @@ const addViaggio =
 
 const deleteViaggio = "DELETE FROM viaggi WHERE idv = $1";
 
+
+
 module.exports = {
   getViaggi,
   getViaggioById,
