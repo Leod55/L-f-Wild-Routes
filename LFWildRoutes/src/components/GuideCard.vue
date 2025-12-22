@@ -37,7 +37,7 @@ export default {
   methods: {
     getUrlImg() {
       return new URL(
-        `../assets/img/utenti/${this.foto_utente}`,
+        `../assets/img/guide/${this.foto_utente}`,
         import.meta.url
       );
     },
@@ -92,8 +92,6 @@ export default {
 </template>
 
 <style>
-
-
 a:link {
   text-decoration: none;
   font-size: 15px;

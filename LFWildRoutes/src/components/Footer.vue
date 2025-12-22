@@ -5,7 +5,7 @@
     <div id="footer_div">
       © 2025 LFWildRoutes <br />
       Un sito dei CQDS <br />
-      Membri: Leonardo Dessanay e Francesca Del Zompo <br />
+      Membri: Leonardo Dessanay, Francesca Del Zompo e Marco Spiga <br />
       <br />
       Contatti: lfwildroutes@gmail.com
     </div>

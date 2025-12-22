@@ -40,6 +40,7 @@ export default {
           :email="utente.email"
           :citta="utente.citta"
           :data_nascita="utente.data_nascita"
+          :foto_utente="utente.foto_utente"
           :bio="utente.bio"
         >
         </GuideCard>
