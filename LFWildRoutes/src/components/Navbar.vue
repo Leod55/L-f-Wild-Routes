@@ -45,6 +45,17 @@ export default {
 </template>
 
 <style>
+nav {
+  background: var(--primary);
+  text-align: center;
+  position: sticky;
+  padding: 0;
+  top: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
 nav li {
   list-style-type: none;
   display: inline-block;

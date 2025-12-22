@@ -156,6 +156,45 @@ export default {
 </template>
 
 <style>
+.section_article {
+  margin: 15px auto;
+  margin-bottom: 80px;
+  padding: 25px;
+  box-shadow: 0 2px 10px 0;
+  border-radius: 20px;
+}
+
+.section_article a {
+  color: var(--primary);
+}
+
+.section_article a:hover {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.section_title {
+  font-size: 25px;
+  color: var(--quartiary);
+  text-align: center;
+}
+
+.section_content {
+  font-size: 15px;
+  color: var(--black);
+}
+
+.img_section {
+  margin: 60px 0;
+  padding: 15px;
+}
+
+.img_section img {
+  width: 100%;
+  height: auto;
+}
+
 #profile_content {
   text-align: center;
 }

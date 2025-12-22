@@ -11,6 +11,11 @@
 </template>
 
 <style>
+header {
+  background: var(--primary);
+  position: relative;
+}
+
 #header_title {
   color: var(--secondary);
   padding: 20px 0;

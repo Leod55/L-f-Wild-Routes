@@ -13,6 +13,14 @@
 </template>
 
 <style>
+footer {
+  background: var(--quartiary);
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+  bottom: 10px;
+}
+
 #footer_div {
   padding: 15px;
 }

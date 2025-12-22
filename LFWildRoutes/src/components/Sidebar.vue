@@ -17,6 +17,14 @@
 </template>
 
 <style>
+aside {
+  text-align: center;
+  background: var(--secondary);
+  box-shadow: 0 0 0 0z;
+  border-radius: 20px;
+  color: var(--black);
+}
+
 aside > h3 {
   color: var(--primary);
 }

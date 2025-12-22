@@ -97,6 +97,7 @@ export default {
 </template>
 
 <style>
+
 #extra_ul {
   padding: 0 40px;
 }

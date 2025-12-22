@@ -92,6 +92,8 @@ export default {
 </template>
 
 <style>
+
+
 a:link {
   text-decoration: none;
   font-size: 15px;
