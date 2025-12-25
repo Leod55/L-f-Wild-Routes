@@ -149,10 +149,10 @@ const aggiornaPassword = (req, res) => {
 const utenteEsistente = (req, res) => {
   const username  = req.params.username;
 
-  pool.query(queries.utenteEsistente, [username], (err, res) => {
+  pool.query(queries.utenteEsistente, [username], (err, results) => {
     if (err) throw err;
 
-    if (res.rows.length > 0) {
+    if (results.rows.length > 0) {
       res.status(200).json({ exists: true });
     } else {
       res.status(200).json({ exists: false });

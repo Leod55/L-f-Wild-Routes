@@ -255,7 +255,7 @@ export default {
 
           <p>Non hai un account?</p>
 
-          <button @click="isLogin = false">Registrati qui</button>
+          <button type="button" @click="isLogin = false">Registrati qui</button>
         </form>
       </div>
     </div>
@@ -367,7 +367,7 @@ export default {
 
           <div class="form_section">
             <p>Hai già un account?</p>
-            <button @click="isLogin = true">Torna al Login</button>
+            <button type="button" @click="isLogin = true">Torna al Login</button>
           </div>
         </form>
       </div>
