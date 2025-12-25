@@ -146,10 +146,25 @@ const aggiornaPassword = (req, res) => {
   });
 };
 
+const utenteEsistente = (req, res) => {
+  const username  = req.params.username;
+
+  pool.query(queries.utenteEsistente, [username], (err, res) => {
+    if (err) throw err;
+
+    if (res.rows.length > 0) {
+      res.status(200).json({ exists: true });
+    } else {
+      res.status(200).json({ exists: false });
+    }
+  });
+};
+
 module.exports = {
   getUtentiList,
   addUtente,
   deleteUtente,
   getUtenteByUsername,
   aggiornaPassword,
+  utenteEsistente
 };

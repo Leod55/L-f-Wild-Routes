@@ -5,6 +5,7 @@ const router = Router();
 
 //GET UTENTI
 
+router.get("/exists/:username", controllerUtenti.utenteEsistente);
 router.get("/", controllerUtenti.getUtentiList);
 router.get("/:username", controllerUtenti.getUtenteByUsername);
 

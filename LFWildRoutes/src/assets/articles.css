@@ -36,3 +36,27 @@
   width: 100%;
   height: auto;
 }
+
+.section_content button {
+  background: var(--secondary);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 15px;
+
+  width: 35%;
+}
+
+.section_content button:hover {
+  background-color: var(--black); /* verde di prima */
+  box-shadow: 10px 10px 40px var(--black);
+
+  color: var(--secondary);
+
+  padding: 15px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+
+  width: 35%;
+}

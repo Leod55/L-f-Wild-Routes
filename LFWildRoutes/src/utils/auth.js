@@ -27,4 +27,9 @@ const isLogged = async () => {
   return await response.json();
 };
 
-export { login, logout, isLogged };
+const utenteEsistente = async (username) => {
+  const response = await fetch(`/api/utenti/exists/${username}`);
+  return await response.json();
+};
+
+export { login, logout, isLogged, utenteEsistente };

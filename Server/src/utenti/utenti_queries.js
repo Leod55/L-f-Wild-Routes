@@ -10,10 +10,13 @@ const deleteUtente = "DELETE FROM utenti WHERE username = $1";
 
 const aggiornaPassword = "UPDATE utenti SET password = $1 WHERE username = $2";
 
+const utenteEsistente = 'SELECT username FROM utenti WHERE username = $1';
+
 module.exports = {
   getUtenti,
   getUtenteByUsernameQ,
   addUtente,
   deleteUtente,
   aggiornaPassword,
+  utenteEsistente
 };
