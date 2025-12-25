@@ -7,7 +7,7 @@ const login = (req, res) => {
   pool.query(queries.login, [username, password], (error, results) => {
     if (error) throw error;
     if (results.rows.length > 0) {
-      req.session.userId = results.rows[0].username;
+      req.session.username = results.rows[0].username;
       res.status(200).json(req.session);
     } else {
       res.status(401).json({ message: "Username o password errati" });
@@ -16,7 +16,7 @@ const login = (req, res) => {
 };
 
 const logout = (req, res) => {
-  if (req.session.userId) {
+  if (req.session.username) {
     req.session.destroy();
     res.status(200).json({ message: "Logout effettuato" });
   } else {
@@ -25,7 +25,7 @@ const logout = (req, res) => {
 };
 
 const isLogged = (req, res) => {
-  if (req.session.userId) {
+  if (req.session.username) {
     res.status(200).json(req.session);
   } else {
     res.status(401).json({ message: "Non sei loggato" });

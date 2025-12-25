@@ -41,17 +41,16 @@ export default {
   },
   methods: {
     async login() {
-      console.log("Sono dentro login()");
       const data = await Auth.login(
         this.loginData.username,
         this.loginData.password
       );
 
-      if (data.userId) {
-        useSessionStore().setUser(data.userId);
+      if (data.username) {
+        useSessionStore().setUser(data.username);
         this.$router.push("/");
       } else {
-        alert("Login failed");
+        alert("Login fallito");
       }
     },
 
@@ -90,8 +89,8 @@ export default {
         this.registrationData.bio
       );
 
-      if (data.userId) {
-        this.sessionStore.setUser(data.userId);
+      if (data.username) {
+        this.sessionStore.setUser(data.username);
         this.$router.push("/");
         alert("Registrazione avvenuta!!");
       } else {

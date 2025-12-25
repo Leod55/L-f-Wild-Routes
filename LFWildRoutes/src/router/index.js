@@ -52,10 +52,10 @@ router.beforeEach(async (to, from, next) => {
   const sessionStore = useSessionStore();
 
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    const userId = sessionStore.getUser();
+    const username = sessionStore.getUser();
     const data = await Auth.isLogged();
 
-    if (userId === null || userId !== data.userId) {
+    if (username === null || username !== data.username) {
       next({
         path: "/login",
         query: { redirect: to.fullPath },

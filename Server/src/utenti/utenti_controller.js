@@ -27,7 +27,7 @@ const addUtente = (req, res) => {
 
     /*Se la query da qualche riga come risultato significa che lo username è gia nel database*/
     if (results.rows.length > 0) {
-      res.status(400).send("Lo username è gia presente nel database");
+      res.status(400).json({ message: "Lo username è gia presente nel database" });
     } else {
       /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
@@ -47,7 +47,7 @@ const addUtente = (req, res) => {
           if (error) throw error;
           res
             .status(201)
-            .json({ message: "Utente aggiunto correttamente al database" });
+            .json({ message: "Utente aggiunto correttamente al database", username: username });
         }
       );
     }
@@ -62,9 +62,9 @@ const deleteUtente = (req, res) => {
 
     /*Se non ci sono righe significa che l'utente da eliminare non c'è*/
     if (results.rowCount === 0) {
-      res.status(404).send("Utente non trovato");
+      res.status(404).json({ message: "Utente non trovato" });
     } else {
-      res.status(200).send("Utente eliminato");
+      res.status(200).json({ message: "Utente eliminato" });
     }
   });
 };
