@@ -27,7 +27,9 @@ const addUtente = (req, res) => {
 
     /*Se la query da qualche riga come risultato significa che lo username è gia nel database*/
     if (results.rows.length > 0) {
-      res.status(400).json({ message: "Lo username è gia presente nel database" });
+      res
+        .status(400)
+        .json({ message: "Lo username è gia presente nel database" });
     } else {
       /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
@@ -47,7 +49,10 @@ const addUtente = (req, res) => {
           if (error) throw error;
           res
             .status(201)
-            .json({ message: "Utente aggiunto correttamente al database", username: username });
+            .json({
+              message: "Utente aggiunto correttamente al database",
+              username: username,
+            });
         }
       );
     }
@@ -87,12 +92,10 @@ const aggiornaPassword = (req, res) => {
   pool.query(queries.getUtenteByUsernameQ, [username], (err, results) => {
     if (err) {
       console.error(err);
-      return res
-        .status(500)
-        .json({
-          success: false,
-          message: "Errore interno del server (Recupero utente)",
-        });
+      return res.status(500).json({
+        success: false,
+        message: "Errore Server",
+      });
     }
 
     if (results.rows.length === 0) {
@@ -105,22 +108,18 @@ const aggiornaPassword = (req, res) => {
 
     // 2. Controllo se la "Vecchia Password" inserita dall'utente è corretta
     if (user.password !== vecchiaPassword) {
-      return res
-        .status(401)
-        .json({
-          success: false,
-          message: "La vecchia password non è corretta.",
-        });
+      return res.status(401).json({
+        success: false,
+        message: "La vecchia password non è corretta.",
+      });
     }
 
     // 3. Controllo se la nuova password è uguale a quella attuale (Il tuo requisito)
     if (user.password === nuovaPassword) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "La nuova password non può essere uguale a quella vecchia.",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "La nuova password non può essere uguale a quella vecchia.",
+      });
     }
 
     // 4. Procedi con l'update solo se i controlli passano
@@ -130,12 +129,10 @@ const aggiornaPassword = (req, res) => {
       (err, updateResult) => {
         if (err) {
           console.error(err);
-          return res
-            .status(500)
-            .json({
-              success: false,
-              message: "Errore interno del server (Update)",
-            });
+          return res.status(500).json({
+            success: false,
+            message: "Errore interno del server (Update)",
+          });
         }
         // Risposta positiva JSON
         res
@@ -147,7 +144,7 @@ const aggiornaPassword = (req, res) => {
 };
 
 const utenteEsistente = (req, res) => {
-  const username  = req.params.username;
+  const username = req.params.username;
 
   pool.query(queries.utenteEsistente, [username], (err, results) => {
     if (err) throw err;
@@ -166,5 +163,5 @@ module.exports = {
   deleteUtente,
   getUtenteByUsername,
   aggiornaPassword,
-  utenteEsistente
+  utenteEsistente,
 };

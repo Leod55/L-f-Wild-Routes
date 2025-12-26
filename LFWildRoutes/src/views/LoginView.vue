@@ -61,6 +61,7 @@ export default {
         return;
       }
 
+      //controllo che le password corrispondano
       if (!this.passwordMatch()) {
         alert("Le password non corrispondono!");
         return;
@@ -89,10 +90,10 @@ export default {
         this.registrationData.bio
       );
 
+      //controllo se la registrazione è avvenuta con successo e mostro la pagina del login
       if (data.username) {
-        this.sessionStore.setUser(data.username);
-        this.$router.push("/");
-        alert("Registrazione avvenuta!!");
+        this.isLogin = true;
+        alert("Registrazione avvenuta, ora puoi effettuare il login!!");
       } else {
         alert("Registrazione fallita!!");
       }
@@ -114,8 +115,7 @@ export default {
         this.checkEmailLength() &&
         this.checkCittaLength() &&
         this.checkDataNascitaLength() &&
-        this.checkBioLength() &&
-        this.passwordMatch()
+        this.checkBioLength()
       );
     },
 
@@ -229,6 +229,10 @@ export default {
       <div>
         <form class="forms" action="login" method="POST">
           <div class="form_section">
+            <p class="lungezza_input">
+              {{ loginData.username.length }}/{{ maxUsername }} caratteri
+              rimanenti
+            </p>
             <label for="username"> Username </label>
             <input
               type="text"
@@ -239,6 +243,10 @@ export default {
           </div>
 
           <div class="form_section">
+            <p class="lungezza_input">
+              {{ loginData.password.length }}/{{ maxPassword }} caratteri
+              rimanenti
+            </p>
             <label for="password"> Password </label> <br />
             <input
               type="password"
@@ -366,7 +374,9 @@ export default {
 
           <div class="form_section">
             <p>Hai già un account?</p>
-            <button type="button" @click="isLogin = true">Torna al Login</button>
+            <button type="button" @click="isLogin = true">
+              Torna al Login
+            </button>
           </div>
         </form>
       </div>
