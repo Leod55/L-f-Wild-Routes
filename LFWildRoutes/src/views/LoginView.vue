@@ -41,6 +41,11 @@ export default {
   },
   methods: {
     async login() {
+      if (!this.confermaLogin()) {
+        alert("Devi rispettare la lunghezza dei campi!!");
+        return;
+      }
+
       const data = await Auth.login(
         this.loginData.username,
         this.loginData.password
@@ -114,8 +119,37 @@ export default {
         this.checkCognomeLength() &&
         this.checkEmailLength() &&
         this.checkCittaLength() &&
-        this.checkDataNascitaLength() &&
         this.checkBioLength()
+      );
+    },
+
+    confermaLogin() {
+      return this.checkUsernameLengthL() && this.checkPasswordLengthL();
+    },
+
+    checkUsernameLengthL() {
+      if (this.loginData.username.length > this.maxUsername) {
+        this.loginData.username = this.loginData.username.substring(
+          0,
+          this.maxUsername
+        );
+      }
+      return (
+        this.loginData.username.length > 0 &&
+        this.loginData.username.length <= this.maxUsername
+      );
+    },
+
+    checkPasswordLengthL() {
+      if (this.loginData.password.length > this.maxPassword) {
+        this.loginData.password = this.loginData.password.substring(
+          0,
+          this.maxPassword
+        );
+      }
+      return (
+        this.loginData.password.length > 0 &&
+        this.loginData.password.length <= this.maxPassword
       );
     },
 
@@ -192,17 +226,6 @@ export default {
       return (
         this.registrationData.citta.length > 0 &&
         this.registrationData.citta.length <= this.maxCitta
-      );
-    },
-
-    checkDataNascitaLength() {
-      if (this.registrationData.data_nascita.length > this.maxDataNascita) {
-        this.registrationData.data_nascita =
-          this.registrationData.data_nascita.substring(0, this.maxDataNascita);
-      }
-      return (
-        this.registrationData.data_nascita.length > 0 &&
-        this.registrationData.data_nascita.length <= this.maxDataNascita
       );
     },
 
@@ -346,10 +369,6 @@ export default {
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
-              {{ registrationData.data_nascita.length }}/{{ maxDataNascita }}
-              caratteri rimanenti
-            </p>
             <label for="data">Data di nascita:</label><br />
             <input
               type="date"

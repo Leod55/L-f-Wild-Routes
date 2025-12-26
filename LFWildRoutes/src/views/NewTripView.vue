@@ -1,6 +1,5 @@
 <script>
 import { useSessionStore } from "@/stores/session";
-import { getActivePinia } from "pinia";
 import * as Api from "@/utils/apis.js";
 
 export default {
@@ -16,16 +15,25 @@ export default {
       extra: "",
       foto_viaggio: "",
       viaggiList: [],
-      data: new Date().toISOString().slice(0, 10),
       sessionStore: useSessionStore(),
+
+      maxNome: 50,
+      maxDescrizione: 500,
+      maxExtra: 500,
     };
   },
+
   methods: {
     async addViaggio() {
+      if (!this.confermaAggiunta()) {
+        alert("Devi rispettare la lunghezza dei campi!!");
+        return;
+      }
+
       const data = await Api.addViaggio(
         this.nome,
         this.data_partenza,
-        this.data_arrivo,
+        this.data_ritorno,
         this.accompagnatore,
         this.prezzo,
         this.descrizione,
@@ -41,6 +49,36 @@ export default {
         alert("Errore durante l'aggiunta del viaggio");
       }
     },
+
+    confermaAggiunta() {
+      return (
+        this.checkNomeLength() &&
+        this.checkDescrizioneLength() &&
+        this.checkExtraLength()
+      );
+    },
+
+    checkNomeLength() {
+      if (this.nome.length > this.maxNome) {
+        this.nome = this.nome.substring(0, this.maxNome);
+      }
+      return this.nome.length > 0 && this.nome.length <= this.maxNome;
+    },
+    checkDescrizioneLength() {
+      if (this.descrizione.length > this.maxDescrizione) {
+        this.descrizione = this.descrizione.substring(0, this.maxDescrizione);
+      }
+      return (
+        this.descrizione.length > 0 &&
+        this.descrizione.length <= this.maxDescrizione
+      );
+    },
+    checkExtraLength() {
+      if (this.extra.length > this.maxExtra) {
+        this.extra = this.extra.substring(0, this.maxExtra);
+      }
+      return this.extra.length > 0 && this.extra.length <= this.maxExtra;
+    },
   },
 };
 </script>
@@ -51,6 +89,9 @@ export default {
 
     <form class="forms" action="newtrip" method="POST">
       <div class="form_section">
+        <p class="lungezza_input">
+          {{ nome.length }}/{{ maxNome }} caratteri rimanenti
+        </p>
         <label for="nome"> Nome: </label> <br />
         <input type="text" id="nome" name="nome" v-model="nome" />
       </div>
@@ -75,6 +116,7 @@ export default {
         >
           <option value="Leo">Leo</option>
           <option value="Kate">Kate</option>
+          <option value="Marco">Marco</option>
           <option value="Nick">Nick</option>
           <option value="Guerri">Guerri</option>
         </select>
@@ -86,6 +128,9 @@ export default {
       </div>
 
       <div class="form_section">
+        <p class="lungezza_input">
+          {{ descrizione.length }}/{{ maxDescrizione }} caratteri rimanenti
+        </p>
         <label for="description"> Descrizione: </label>
         <textarea
           id="description"
@@ -97,6 +142,9 @@ export default {
       </div>
 
       <div class="form_section">
+        <p class="lungezza_input">
+          {{ extra.length }}/{{ maxExtra }} caratteri rimanenti
+        </p>
         <label for="extra"> Extra: </label> <br />
         <textarea
           id="extra"
@@ -117,5 +165,3 @@ export default {
     </form>
   </div>
 </template>
-
-

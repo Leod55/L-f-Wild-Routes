@@ -31,7 +31,7 @@ export default {
     },
     foto_utente: {
       type: String,
-      default: "defaultimg.jpg",
+      default: "defaultimgutenti.jpg",
     },
   },
   methods: {

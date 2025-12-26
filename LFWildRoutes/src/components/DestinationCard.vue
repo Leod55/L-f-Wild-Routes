@@ -31,7 +31,7 @@ export default {
     },
     foto_viaggio: {
       type: String,
-      default: "defaultimg.jpg",
+      default: "defaultimgviaggi.jpg",
     },
   },
   methods: {
@@ -97,7 +97,6 @@ export default {
 </template>
 
 <style>
-
 #extra_ul {
   padding: 0 40px;
 }

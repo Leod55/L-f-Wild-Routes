@@ -31,7 +31,7 @@ export default {
     },
     getUrlImg() {
       return new URL(
-        `../assets/img/utenti/${this.foto_utente}`,
+        `../assets/img/utenti/${this.user.foto_utente}`,
         import.meta.url
       );
     },
