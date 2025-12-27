@@ -14,6 +14,7 @@ export default {
       vecchiaPassword: "",
       nuovaPassword: "",
       confermaPassword: "",
+      maxPassword: 50,
     };
   },
   methods: {
@@ -41,17 +42,18 @@ export default {
       this.formAtt = !this.formAtt;
     },
     async aggiornaPassword() {
-      this.passwordSbagliata = "";
-      this.passwordGiusta = "";
-
-      if (this.nuovaPassword === this.vecchiaPassword) {
-        this.passwordSbagliata =
-          "La nuova password deve essere diversa dalla vecchia!";
+        if (!this.confermaAggiornamento()) {
+        alert("Devi rispettare la lunghezza dei campi!!");
         return;
       }
-      if (this.nuovaPassword != this.confermaPassword) {
-        this.passwordSbagliata =
-          "Le password non corrispondono!";
+
+      if (this.nuovaPassword === this.vecchiaPassword) {
+        alert("La nuova password deve essere diversa dalla vecchia!");
+        return;
+      }
+
+      if (this.nuovaPassword !== this.confermaPassword) {
+        alert("Le password non corrispondono!");
         return;
       }
 
@@ -61,14 +63,45 @@ export default {
         this.nuovaPassword,
         this.confermaPassword
       );
-      if (result.ok) {
-        this.passwordGiusta = "Password aggiornata con successo!";
+
+      if (result.success) {
+        alert("Password aggiornata con successo!");
         this.vecchiaPassword = "";
         this.nuovaPassword = "";
         this.confermaPassword = "";
+        this.attivaForm(); 
       } else {
-        this.passwordSbagliata = result.message;
+        alert(result.message || "Errore durante l'aggiornamento della password");
       }
+    },
+    
+    confermaAggiornamento() {
+      return (
+        this.checkVecchiaPasswordLength() &&
+        this.checkNuovaPasswordLength() &&
+        this.checkConfermaPasswordLength()
+      );
+    },
+
+    checkVecchiaPasswordLength() {
+      return (
+        this.vecchiaPassword.length > 0 &&
+        this.vecchiaPassword.length <= this.maxPassword
+      );
+    },
+
+    checkNuovaPasswordLength() {
+      return (
+        this.nuovaPassword.length > 0 &&
+        this.nuovaPassword.length <= this.maxPassword
+      );
+    },
+
+    checkConfermaPasswordLength() {
+      return (
+        this.confermaPassword.length > 0 &&
+        this.confermaPassword.length <= this.maxPassword
+      );
     },
   },
 
@@ -132,16 +165,25 @@ export default {
             <h3>Cambia Password</h3>
 
             <section>
+              <p class="lungezza_input">
+                {{ vecchiaPassword.length }}/{{ maxPassword }} caratteri rimanenti
+              </p>
               <label>Vecchia Password:</label>
               <input type="password" v-model="vecchiaPassword" />
             </section>
 
             <section>
+              <p class="lungezza_input">
+                {{ nuovaPassword.length }}/{{ maxPassword }} caratteri rimanenti
+              </p>
               <label>Nuova Password:</label>
               <input type="password" v-model="nuovaPassword" />
             </section>
 
             <section>
+              <p class="lungezza_input">
+                {{ confermaPassword.length }}/{{ maxPassword }} caratteri rimanenti
+              </p>
               <label>Conferma Nuova Password:</label>
               <input type="password" v-model="confermaPassword" />
             </section>
@@ -161,6 +203,11 @@ export default {
 <style>
 #profile_content {
   text-align: center;
+}
+
+.lungezza_input {
+  font-size: 11px;
+  color: red;
 }
 
 a:link {
