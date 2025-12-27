@@ -13,6 +13,7 @@ export default {
       formAtt: false,
       vecchiaPassword: "",
       nuovaPassword: "",
+      confermaPassword: "",
     };
   },
   methods: {
@@ -40,35 +41,33 @@ export default {
       this.formAtt = !this.formAtt;
     },
     async aggiornaPassword() {
-      this.passwordError = "";
-      this.passwordSuccess = "";
+      this.passwordSbagliata = "";
+      this.passwordGiusta = "";
 
       if (this.nuovaPassword === this.vecchiaPassword) {
-        this.passwordError =
-          "La nuova password deve essere diversa dalla vecchia.";
+        this.passwordSbagliata =
+          "La nuova password deve essere diversa dalla vecchia!";
         return;
       }
-      if (this.nuovaPassword.length < 5) {
-        // Basic validation
-        this.passwordError =
-          "La nuova password è troppo corta (min 5 caratteri).";
+      if (this.nuovaPassword != this.confermaPassword) {
+        this.passwordSbagliata =
+          "Le password non corrispondono!";
         return;
       }
 
       const result = await Api.aggiornaPassword(
         this.username,
         this.vecchiaPassword,
-        this.nuovaPassword
+        this.nuovaPassword,
+        this.confermaPassword
       );
       if (result.ok) {
-        this.passwordSuccess = "Password aggiornata con successo!";
+        this.passwordGiusta = "Password aggiornata con successo!";
         this.vecchiaPassword = "";
         this.nuovaPassword = "";
-        setTimeout(() => {
-          this.formAtt = false;
-        }, 2000);
+        this.confermaPassword = "";
       } else {
-        this.passwordError = result.message;
+        this.passwordSbagliata = result.message;
       }
     },
   },
@@ -140,6 +139,11 @@ export default {
             <section>
               <label>Nuova Password:</label>
               <input type="password" v-model="nuovaPassword" />
+            </section>
+
+            <section>
+              <label>Conferma Nuova Password:</label>
+              <input type="password" v-model="confermaPassword" />
             </section>
 
             <section>

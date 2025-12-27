@@ -55,7 +55,7 @@ export default {
         useSessionStore().setUser(data.username);
         this.$router.push("/");
       } else {
-        alert("Login fallito");
+        alert("Username o password errate");
       }
     },
 
@@ -128,12 +128,6 @@ export default {
     },
 
     checkUsernameLengthL() {
-      if (this.loginData.username.length > this.maxUsername) {
-        this.loginData.username = this.loginData.username.substring(
-          0,
-          this.maxUsername
-        );
-      }
       return (
         this.loginData.username.length > 0 &&
         this.loginData.username.length <= this.maxUsername
@@ -141,12 +135,6 @@ export default {
     },
 
     checkPasswordLengthL() {
-      if (this.loginData.password.length > this.maxPassword) {
-        this.loginData.password = this.loginData.password.substring(
-          0,
-          this.maxPassword
-        );
-      }
       return (
         this.loginData.password.length > 0 &&
         this.loginData.password.length <= this.maxPassword
@@ -156,10 +144,6 @@ export default {
     //-----------------------------------FUNZIONI PER I CONTROLLI SULLA LUNGEZZA DEGLI INPUT-------------------------------------------
 
     checkUsernameLength() {
-      if (this.registrationData.username.length > this.maxUsername) {
-        this.registrationData.username =
-          this.registrationData.username.substring(0, this.maxUsername);
-      }
       return (
         this.registrationData.username.length > 0 &&
         this.registrationData.username.length <= this.maxUsername
@@ -167,10 +151,6 @@ export default {
     },
 
     checkPasswordLength() {
-      if (this.registrationData.password.length > this.maxPassword) {
-        this.registrationData.password =
-          this.registrationData.password.substring(0, this.maxPassword);
-      }
       return (
         this.registrationData.password.length > 0 &&
         this.registrationData.password.length <= this.maxPassword
@@ -178,12 +158,6 @@ export default {
     },
 
     checkNomeLength() {
-      if (this.registrationData.nome.length > this.maxNome) {
-        this.registrationData.nome = this.registrationData.nome.substring(
-          0,
-          this.maxNome
-        );
-      }
       return (
         this.registrationData.nome.length > 0 &&
         this.registrationData.nome.length <= this.maxNome
@@ -191,12 +165,6 @@ export default {
     },
 
     checkCognomeLength() {
-      if (this.registrationData.cognome.length > this.maxCognome) {
-        this.registrationData.cognome = this.registrationData.cognome.substring(
-          0,
-          this.maxCognome
-        );
-      }
       return (
         this.registrationData.cognome.length > 0 &&
         this.registrationData.cognome.length <= this.maxCognome
@@ -204,12 +172,6 @@ export default {
     },
 
     checkEmailLength() {
-      if (this.registrationData.email.length > this.maxEmail) {
-        this.registrationData.email = this.registrationData.email.substring(
-          0,
-          this.maxEmail
-        );
-      }
       return (
         this.registrationData.email.length > 0 &&
         this.registrationData.email.length <= this.maxEmail
@@ -217,12 +179,6 @@ export default {
     },
 
     checkCittaLength() {
-      if (this.registrationData.citta.length > this.maxCitta) {
-        this.registrationData.citta = this.registrationData.citta.substring(
-          0,
-          this.maxCitta
-        );
-      }
       return (
         this.registrationData.citta.length > 0 &&
         this.registrationData.citta.length <= this.maxCitta
@@ -230,12 +186,6 @@ export default {
     },
 
     checkBioLength() {
-      if (this.registrationData.bio.length > this.maxBio) {
-        this.registrationData.bio = this.registrationData.bio.substring(
-          0,
-          this.maxBio
-        );
-      }
       return this.registrationData.bio.length <= this.maxBio;
     },
   },

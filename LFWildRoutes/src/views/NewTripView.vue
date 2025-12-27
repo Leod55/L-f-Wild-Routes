@@ -59,24 +59,15 @@ export default {
     },
 
     checkNomeLength() {
-      if (this.nome.length > this.maxNome) {
-        this.nome = this.nome.substring(0, this.maxNome);
-      }
       return this.nome.length > 0 && this.nome.length <= this.maxNome;
     },
     checkDescrizioneLength() {
-      if (this.descrizione.length > this.maxDescrizione) {
-        this.descrizione = this.descrizione.substring(0, this.maxDescrizione);
-      }
       return (
         this.descrizione.length > 0 &&
         this.descrizione.length <= this.maxDescrizione
       );
     },
     checkExtraLength() {
-      if (this.extra.length > this.maxExtra) {
-        this.extra = this.extra.substring(0, this.maxExtra);
-      }
       return this.extra.length > 0 && this.extra.length <= this.maxExtra;
     },
   },
