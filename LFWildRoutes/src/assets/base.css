@@ -1,48 +1,33 @@
 :root {
-  --primary: #3ec66b;
-  --primary-rgb: 62, 198, 107;
+  /* Wild Nature Premium Palette */
+  --primary: #2C5F2D;
+  /* Forest Green - Deep & Professional */
+  --primary-rgb: 44, 95, 45;
 
-  --secondary: #f3fbf6;
-  --secondary-rgb: 243, 251, 246;
+  --secondary: #97BC62;
+  /* Moss Green - Fresh & Welcoming */
+  --secondary-rgb: 151, 188, 98;
 
-  /*
-  #984216
-  161, 66, 22
+  --tertiary: #D4A373;
+  /* Sand/Wood - Natural Accent */
+  --tertiary-rgb: 212, 163, 115;
 
-  #e4d6c5
-  228, 214, 197
+  --quartiary: #606C38;
+  /* Olive - Subtle Detail */
+  --quartiary-rgb: 96, 108, 56;
 
-  #78898f
-  120, 137, 143
-
-  #28514e
-
-
-
-  -----------------------------------------
-
-
-  #003344
-  #1A4314
-
-  #F7F7F7
-
-  
-  */
-
-  --tertiary: #91e3ac;
-  --tertiary-rgb: 120, 137, 143;
-
-  --quartiary: #5edd88;
-  --quartiary-rgb: 40, 81, 78;
+  --background-color: #F2F5F0;
+  /* Ice White/Pale Mist - Soft on eyes */
 
   --white: #ffffff;
   --white-rgb: 255, 255, 255;
 
-  --black: #07120a;
-  --black-rgb: 0, 0, 0;
+  --black: #1A281F;
+  /* Dark Jungle - Softer than pure black */
+  --black-rgb: 26, 40, 31;
 
-  font-family: Iconoplastic, Arial, Helvetica, sans-serif;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
 }
 
 @font-face {

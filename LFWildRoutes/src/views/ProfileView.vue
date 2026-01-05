@@ -165,7 +165,7 @@ export default {
             <h3>Cambia Password</h3>
 
             <section>
-              <p class="lungezza_input">
+        <p class="lunghezza_input">
                 {{ vecchiaPassword.length }}/{{ maxPassword }} caratteri rimanenti
               </p>
               <label>Vecchia Password:</label>
@@ -205,7 +205,7 @@ export default {
   text-align: center;
 }
 
-.lungezza_input {
+.lunghezza_input {
   font-size: 11px;
   color: red;
 }

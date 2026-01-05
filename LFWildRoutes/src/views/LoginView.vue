@@ -141,7 +141,7 @@ export default {
       );
     },
 
-    //-----------------------------------FUNZIONI PER I CONTROLLI SULLA LUNGEZZA DEGLI INPUT-------------------------------------------
+    //-----------------------------------FUNZIONI PER I CONTROLLI SULLA LUNGHEZZA DEGLI INPUT-------------------------------------------
 
     checkUsernameLength() {
       return (
@@ -212,6 +212,7 @@ export default {
               id="username"
               name="username"
               v-model="loginData.username"
+              :maxlength="maxUsername"
             />
           </div>
 
@@ -226,6 +227,7 @@ export default {
               id="password"
               name="password"
               v-model="loginData.password"
+              :maxlength="maxPassword"
             />
           </div>
 
@@ -248,12 +250,12 @@ export default {
       <div>
         <form class="forms" @submit.prevent="registration">
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.username.length }}/{{ maxUsername }} caratteri
               rimanenti
             </p>
             <label>Username:</label><br />
-            <input type="text" v-model="registrationData.username" required />
+            <input type="text" v-model="registrationData.username" required :maxlength="maxUsername" />
           </div>
 
           <div class="form_section">
@@ -266,6 +268,7 @@ export default {
               type="password"
               v-model="registrationData.password"
               required
+              :maxlength="maxPassword"
             />
           </div>
 
@@ -279,6 +282,7 @@ export default {
               type="password"
               v-model="registrationData.confermaPassword"
               required
+              :maxlength="maxPassword"
             />
           </div>
 
@@ -288,7 +292,7 @@ export default {
               rimanenti
             </p>
             <label>Email:</label><br />
-            <input type="email" v-model="registrationData.email" required />
+            <input type="email" v-model="registrationData.email" required :maxlength="maxEmail" />
           </div>
 
           <div class="form_section">
@@ -297,7 +301,7 @@ export default {
               rimanenti
             </p>
             <label>Nome:</label><br />
-            <input type="text" v-model="registrationData.nome" required />
+            <input type="text" v-model="registrationData.nome" required :maxlength="maxNome" />
           </div>
 
           <div class="form_section">
@@ -306,7 +310,7 @@ export default {
               rimanenti
             </p>
             <label>Cognome:</label><br />
-            <input type="text" v-model="registrationData.cognome" required />
+            <input type="text" v-model="registrationData.cognome" required :maxlength="maxCognome" />
           </div>
 
           <div class="form_section">
@@ -315,7 +319,7 @@ export default {
               rimanenti
             </p>
             <label>Città:</label><br />
-            <input type="text" v-model="registrationData.citta" required />
+            <input type="text" v-model="registrationData.citta" required :maxlength="maxCitta" />
           </div>
 
           <div class="form_section">
@@ -334,7 +338,7 @@ export default {
               {{ registrationData.bio.length }}/{{ maxBio }} caratteri rimanenti
             </p>
             <label>Bio:</label><br />
-            <textarea v-model="registrationData.bio"></textarea>
+            <textarea v-model="registrationData.bio" :maxlength="maxBio"></textarea>
           </div>
 
           <div class="form_section">
@@ -354,8 +358,88 @@ export default {
 </template>
 
 <style>
-.lungezza_input {
+.lunghezza_input {
   font-size: 11px;
   color: red;
+  margin-bottom: 4px;
+}
+
+/* Form Styles */
+.forms {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form_section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+
+/* Fix Overflow - Input & Buttons */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea,
+input[type="submit"],
+button {
+  display: block; /* Assicura comportamento a blocco */
+  width: 100%;
+  max-width: 100%; /* Previene espansione oltre il contenitore */
+  box-sizing: border-box !important; /* Forza il calcolo bordi */
+  margin: 10px 0; /* Spaziatura verticale sicura */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea {
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #f9f9f9;
+}
+
+input[type="submit"],
+button {
+  padding: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+button[type="button"] {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+button[type="button"]:hover {
+  background-color: var(--primary);
+  color: var(--white);
 }
 </style>

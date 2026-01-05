@@ -14,6 +14,9 @@
 header {
   background: var(--primary);
   position: relative;
+  border-radius: 20px; /* Arrotondato sia sopra che sotto */
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 #header_title {

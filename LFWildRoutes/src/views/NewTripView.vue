@@ -20,6 +20,8 @@ export default {
       maxNome: 50,
       maxDescrizione: 500,
       maxExtra: 500,
+      minPrezzo: 10,
+      maxPrezzo: 10000,
     };
   },
 
@@ -54,7 +56,8 @@ export default {
       return (
         this.checkNomeLength() &&
         this.checkDescrizioneLength() &&
-        this.checkExtraLength()
+        this.checkExtraLength() &&
+        this.checkPrezzo()
       );
     },
 
@@ -70,6 +73,9 @@ export default {
     checkExtraLength() {
       return this.extra.length > 0 && this.extra.length <= this.maxExtra;
     },
+    checkPrezzo() {
+        return this.prezzo >= this.minPrezzo && this.prezzo <= this.maxPrezzo;
+    },
   },
 };
 </script>
@@ -80,7 +86,7 @@ export default {
 
     <form class="forms" action="newtrip" method="POST">
       <div class="form_section">
-        <p class="lungezza_input">
+        <p class="lunghezza_input">
           {{ nome.length }}/{{ maxNome }} caratteri rimanenti
         </p>
         <label for="nome"> Nome: </label> <br />
@@ -114,8 +120,11 @@ export default {
       </div>
 
       <div class="form_section">
+        <p class="soglia_rossa">
+          Min/Max: {{ minPrezzo }}€ - {{ maxPrezzo }}€
+        </p>
         <label for="prezzo"> Prezzo: </label>
-        <input type="number" id="prezzo" name="prezzo" v-model="prezzo" />
+        <input type="number" id="prezzo" name="prezzo" v-model="prezzo" :min="minPrezzo" :max="maxPrezzo" />
       </div>
 
       <div class="form_section">
@@ -156,3 +165,14 @@ export default {
     </form>
   </div>
 </template>
+
+<style>
+.lunghezza_input {
+  font-size: 11px;
+}
+.soglia_rossa {
+    color: red;
+    font-size: 11px;
+    font-weight: bold;
+}
+</style>

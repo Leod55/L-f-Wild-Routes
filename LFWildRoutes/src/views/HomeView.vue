@@ -25,17 +25,18 @@ export default {
 
 <template>
   <article class="col-6 main_div">
-    <div class="home_titles">
-      <h1>L&F WildRoutes HOME</h1>
+    <div class="home_frame">
+      <div class="home_titles">
+        <h1>L&F WildRoutes HOME</h1>
+        <h3>Vivi la tua avventura insieme a noi</h3>
+      </div>
 
-      <h3>Vivi la tua avventura insieme a noi</h3>
+      <p>
+        Il sito è destinato per gli amanti dei viaggi selvaggi, troverete proposte
+        di ogni tipo: <br />
+        dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
+      </p>
     </div>
-
-    <p>
-      Il sito è destinato per gli amanti dei viaggi selvaggi, troverete proposte
-      di ogni tipo: <br />
-      dai ghiaggi dell'Islanda al caldo del deserto Marocchino.
-    </p>
     <div v-if="viaggio">
       <DestinationCard
         :nome="viaggio.nome"
@@ -53,8 +54,26 @@ export default {
 </template>
 
 <style>
+
 .home_titles {
   text-align: center;
   margin: 20px;
+}
+
+.home_frame {
+  border: 4px solid var(--secondary);
+  border-radius: 15px;
+  padding: 30px;
+  margin: -20px 0 20px 0; /* Margine negativo per compensare main_div */
+  background-color: var(--white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.home_frame p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--black);
+  margin: 0;
 }
 </style>

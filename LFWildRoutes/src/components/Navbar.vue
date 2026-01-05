@@ -54,6 +54,7 @@ nav {
   margin-top: 10px;
   margin-bottom: 30px;
   border-radius: 8px;
+  z-index: 1000; /* Assicura che la navbar stia sopra le card */
 }
 
 nav li {
