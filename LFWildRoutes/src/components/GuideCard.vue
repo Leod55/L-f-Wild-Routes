@@ -91,12 +91,12 @@ export default {
 </template>
 
 <style scoped>
-.guide-card {
+.section_article.guide-card {
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 25px;
-  margin-bottom: 30px !important; /* Force margin */
+  margin-bottom: 30px;
   transition: transform 0.3s ease;
 }
 

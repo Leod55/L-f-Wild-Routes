@@ -90,13 +90,7 @@ const aggiornaPassword = (req, res) => {
   const { username, vecchiaPassword, nuovaPassword } = req.body;
 
   pool.query(queries.getUtenteByUsernameQ, [username], (err, results) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({
-        success: false,
-        message: "Errore Server",
-      });
-    }
+    if (err) throw err;
 
     if (results.rows.length === 0) {
       return res
@@ -106,7 +100,6 @@ const aggiornaPassword = (req, res) => {
 
     const user = results.rows[0];
 
-    // 2. Controllo se la "Vecchia Password" inserita dall'utente è corretta
     if (user.password !== vecchiaPassword) {
       return res.status(401).json({
         success: false,
@@ -114,7 +107,6 @@ const aggiornaPassword = (req, res) => {
       });
     }
 
-    // 3. Controllo se la nuova password è uguale a quella attuale (Il tuo requisito)
     if (user.password === nuovaPassword) {
       return res.status(400).json({
         success: false,
@@ -122,19 +114,12 @@ const aggiornaPassword = (req, res) => {
       });
     }
 
-    // 4. Procedi con l'update solo se i controlli passano
     pool.query(
       queries.aggiornaPassword,
       [nuovaPassword, username],
       (err, updateResult) => {
-        if (err) {
-          console.error(err);
-          return res.status(500).json({
-            success: false,
-            message: "Errore interno del server (Update)",
-          });
-        }
-        // Risposta positiva JSON
+        if (err) throw err;
+
         res
           .status(200)
           .json({ success: true, message: "Password aggiornata con successo" });

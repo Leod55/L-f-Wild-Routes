@@ -1,6 +1,5 @@
 const getUtenti = "SELECT * FROM utenti";
 
-//Non uso l'getById per gli utenti perchè come chiave primaria basta lo username
 const getUtenteByUsernameQ = "SELECT * FROM utenti WHERE username=$1";
 
 const addUtente =

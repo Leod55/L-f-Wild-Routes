@@ -1,60 +1,83 @@
 .forms {
-  text-align: center;
-  background: rgba(var(--primary-rgb), 0.6);
-  box-shadow: 0 2px 10px 0;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--white);
   border-radius: 20px;
-
-  color: var(--black);
-
-  padding: 10px 5px;
-  margin: 60px auto;
-
-  font-size: 20px;
-
-  /*
-  position: absolute;
-
-  top: 85%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-  */
-
-  width: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form_section {
-  margin: 40px 10px;
+  margin-bottom: 20px;
 }
 
-.forms input,
-select,
-textarea {
+label {
   display: block;
-  width: 66%;
-  margin-left: 16%;
-  margin-top: 3%;
-}
-
-.forms input[type="submit"] {
-  background: var(--secondary);
   font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 15px;
+  margin-bottom: 8px;
+  color: var(--black);
 }
 
-.forms input[type="submit"]:hover {
-  /*background: var(--black);
-  color: var(--secondary);
-  box-shadow: 10px 10px 40px var(--black);*/
-  background-color: var(--black); /* verde di prima */
-  box-shadow: 10px 10px 40px var(--black);
+.lunghezza_input {
+  font-size: 11px;
+  color: red;
+  margin-bottom: 4px;
+}
 
-  color: var(--secondary);
+/*****************************************PULSANTI E INPUT*****************************************/
+.forms input[type="text"],
+.forms input[type="password"],
+.forms input[type="email"],
+.forms input[type="date"],
+.forms textarea,
+.forms input[type="submit"],
+.forms button {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
 
-  padding: 15px 40px;
-  border-radius: 5px;
+.forms input[type="text"],
+.forms input[type="password"],
+.forms input[type="email"],
+.forms input[type="date"],
+.forms textarea {
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #f9f9f9;
+}
+
+.forms input[type="submit"],
+.forms button {
+  padding: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
-  position: relative; /* serve per sovraimpressione */
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.forms input[type="submit"]:hover,
+.forms button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.forms button[type="button"] {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.forms button[type="button"]:hover {
+  background-color: var(--primary);
+  color: var(--white);
 }
