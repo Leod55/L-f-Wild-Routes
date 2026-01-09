@@ -202,7 +202,7 @@ export default {
       <div>
         <form class="forms" action="login" method="POST">
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ loginData.username.length }}/{{ maxUsername }} caratteri
               rimanenti
             </p>
@@ -217,11 +217,11 @@ export default {
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ loginData.password.length }}/{{ maxPassword }} caratteri
               rimanenti
             </p>
-            <label for="password"> Password </label> <br />
+            <label for="password"> Password </label>
             <input
               type="password"
               id="password"
@@ -254,16 +254,16 @@ export default {
               {{ registrationData.username.length }}/{{ maxUsername }} caratteri
               rimanenti
             </p>
-            <label>Username:</label><br />
+            <label>Username:</label>
             <input type="text" v-model="registrationData.username" required :maxlength="maxUsername" />
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.password.length }}/{{ maxPassword }} caratteri
               rimanenti
             </p>
-            <label>Password:</label><br />
+            <label>Password:</label>
             <input
               type="password"
               v-model="registrationData.password"
@@ -273,11 +273,11 @@ export default {
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.confermaPassword.length }}/{{ maxPassword }}
               caratteri rimanenti
             </p>
-            <label>Conferma password:</label><br />
+            <label>Conferma password:</label>
             <input
               type="password"
               v-model="registrationData.confermaPassword"
@@ -287,43 +287,43 @@ export default {
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.email.length }}/{{ maxEmail }} caratteri
               rimanenti
             </p>
-            <label>Email:</label><br />
+            <label>Email:</label>
             <input type="email" v-model="registrationData.email" required :maxlength="maxEmail" />
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.nome.length }}/{{ maxNome }} caratteri
               rimanenti
             </p>
-            <label>Nome:</label><br />
+            <label>Nome:</label>
             <input type="text" v-model="registrationData.nome" required :maxlength="maxNome" />
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.cognome.length }}/{{ maxCognome }} caratteri
               rimanenti
             </p>
-            <label>Cognome:</label><br />
+            <label>Cognome:</label>
             <input type="text" v-model="registrationData.cognome" required :maxlength="maxCognome" />
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.citta.length }}/{{ maxCitta }} caratteri
               rimanenti
             </p>
-            <label>Città:</label><br />
+            <label>Città:</label>
             <input type="text" v-model="registrationData.citta" required :maxlength="maxCitta" />
           </div>
 
           <div class="form_section">
-            <label for="data">Data di nascita:</label><br />
+            <label for="data">Data di nascita:</label>
             <input
               type="date"
               id="data"
@@ -334,10 +334,10 @@ export default {
           </div>
 
           <div class="form_section">
-            <p class="lungezza_input">
+            <p class="lunghezza_input">
               {{ registrationData.bio.length }}/{{ maxBio }} caratteri rimanenti
             </p>
-            <label>Bio:</label><br />
+            <label>Bio:</label>
             <textarea v-model="registrationData.bio" :maxlength="maxBio"></textarea>
           </div>
 

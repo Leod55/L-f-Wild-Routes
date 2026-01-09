@@ -3,7 +3,7 @@
 <template>
   <header class="col-12 row">
     <div class="col-3">
-      <img src="../assets/img/logo3_acqua.png" alt="logo" height="150" />
+      <img src="../assets/img/LogoSito.jpg" alt="logo" height="150" />
     </div>
     <div class="col-6"><h1 id="header_title">L&F Wild Routes</h1></div>
     <div class="col-3"></div>

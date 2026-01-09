@@ -41,6 +41,15 @@ export default {
         import.meta.url
       );
     },
+    formatDate(date) {
+      if (!date) return "";
+      const d = new Date(date);
+      return d.toLocaleDateString('it-IT', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    },
   },
 };
 </script>
@@ -51,19 +60,18 @@ export default {
 
     <hr />
 
-    <div class="section_content">
+    <div class="section_content row">
       <div class="col-6 img_section">
         <img :src="getUrlImg()" alt="img_viaggio" />
       </div>
 
-      <div class="col-6">
+      <div class="col-6 section_info">
         <section>
           <h4>Date:</h4>
 
-          <p>Dal {{ data_partenza }} al {{ data_ritorno }}</p>
+          <p>Dal {{ formatDate(data_partenza) }} al {{ formatDate(data_ritorno) }}</p>
         </section>
 
-        <!--Aggiungere, oltre al link per la pagina who, anche direttamente il collegamento al punto con id giusto (GuideCard di Francesca)-->
         <section>
           <h4>Accompagnatore:</h4>
 

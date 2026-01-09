@@ -128,7 +128,7 @@ export default {
       </div>
 
       <div class="form_section">
-        <p class="lungezza_input">
+        <p class="lunghezza_input">
           {{ descrizione.length }}/{{ maxDescrizione }} caratteri rimanenti
         </p>
         <label for="description"> Descrizione: </label>
@@ -142,7 +142,7 @@ export default {
       </div>
 
       <div class="form_section">
-        <p class="lungezza_input">
+        <p class="lunghezza_input">
           {{ extra.length }}/{{ maxExtra }} caratteri rimanenti
         </p>
         <label for="extra"> Extra: </label> <br />

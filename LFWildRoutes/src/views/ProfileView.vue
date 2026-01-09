@@ -33,16 +33,16 @@ export default {
     },
     getUrlImg() {
       return new URL(
-        `../assets/img/utenti/${this.user.foto_utente}`,
+        `../assets/img/guide/${this.user.foto_utente}`,
         import.meta.url
-      );
+      ).href;
     },
 
     attivaForm() {
       this.formAtt = !this.formAtt;
     },
     async aggiornaPassword() {
-        if (!this.confermaAggiornamento()) {
+      if (!this.confermaAggiornamento()) {
         alert("Devi rispettare la lunghezza dei campi!!");
         return;
       }
@@ -123,7 +123,7 @@ export default {
 
       <div class="section_content" id="profile_content">
         <div class="img_section">
-          <img :src="getUrlImg()" alt="img_utente" />
+          <img v-if="user.foto_utente" :src="getUrlImg()" alt="img_utente" />
         </div>
 
         <div>
@@ -161,7 +161,9 @@ export default {
             <button @click="attivaForm()">Cambia Password</button>
           </section>
 
-          <div v-if="formAtt">
+          <br />
+
+          <div id="cambia_password" v-if="formAtt">
             <h3>Cambia Password</h3>
 
             <section>
@@ -173,7 +175,7 @@ export default {
             </section>
 
             <section>
-              <p class="lungezza_input">
+              <p class="lunghezza_input">
                 {{ nuovaPassword.length }}/{{ maxPassword }} caratteri rimanenti
               </p>
               <label>Nuova Password:</label>
@@ -181,16 +183,20 @@ export default {
             </section>
 
             <section>
-              <p class="lungezza_input">
+              <p class="lunghezza_input">
                 {{ confermaPassword.length }}/{{ maxPassword }} caratteri rimanenti
               </p>
               <label>Conferma Nuova Password:</label>
               <input type="password" v-model="confermaPassword" />
             </section>
 
+            <br />
+
             <section>
               <button @click="aggiornaPassword()">Aggiorna</button>
             </section>
+
+            <br />
           </div>
 
           <button @click="logout()">Logout</button>
@@ -203,6 +209,10 @@ export default {
 <style>
 #profile_content {
   text-align: center;
+}
+
+#profile_content img {
+  width: 30%;
 }
 
 .lunghezza_input {

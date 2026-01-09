@@ -58,7 +58,6 @@ export default {
 }
 
 .guide-container {
-  display: flex;
   justify-content: center;
 }
 </style>

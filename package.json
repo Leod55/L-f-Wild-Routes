@@ -1,0 +1,12 @@
+{
+    "name": "lf-wild-routes-root",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "concurrently \"npm run start --prefix Server\" \"npm run dev --prefix LFWildRoutes\"",
+        "install-all": "npm install && npm install --prefix Server && npm install --prefix LFWildRoutes"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}
