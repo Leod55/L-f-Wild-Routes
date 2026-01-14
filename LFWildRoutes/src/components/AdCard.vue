@@ -3,11 +3,15 @@
 <template>
   <article class="col-3 ad_article">
     <div>
-      <h4>Pubblicità 1</h4>
+      <img src="../assets/img/Pubblicita/Pubblicita1.png" alt="ad1" height="300"/>
     </div>
 
     <div>
-      <img src="../assets/img/Zaino.jpg" alt="ad1" height="200" />
+      <img src="../assets/img/Pubblicita/Pubblicita2.png" alt="ad2" height="300"/>
+    </div>
+
+    <div>
+      <img src="../assets/img/Pubblicita/Pubblicita3.png" alt="ad3" height="300"/>
     </div>
   </article>
 </template>

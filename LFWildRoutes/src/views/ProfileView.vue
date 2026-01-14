@@ -157,6 +157,12 @@ export default {
             <p>{{ user.bio }}</p>
           </section>
 
+          <br />
+
+          <hr />
+
+          <br />
+
           <section>
             <button @click="attivaForm()">Cambia Password</button>
           </section>

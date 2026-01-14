@@ -1,29 +1,28 @@
 :root {
-  /* Wild Nature Premium Palette */
+
   --primary: #2C5F2D;
-  /* Forest Green - Deep & Professional */
+
   --primary-rgb: 44, 95, 45;
 
   --secondary: #97BC62;
-  /* Moss Green - Fresh & Welcoming */
+
   --secondary-rgb: 151, 188, 98;
 
   --tertiary: #D4A373;
-  /* Sand/Wood - Natural Accent */
+
   --tertiary-rgb: 212, 163, 115;
 
   --quartiary: #606C38;
-  /* Olive - Subtle Detail */
+
   --quartiary-rgb: 96, 108, 56;
 
   --background-color: #F2F5F0;
-  /* Ice White/Pale Mist - Soft on eyes */
 
   --white: #ffffff;
   --white-rgb: 255, 255, 255;
 
   --black: #1A281F;
-  /* Dark Jungle - Softer than pure black */
+
   --black-rgb: 26, 40, 31;
 
   font-family: 'Lato', Arial, Helvetica, sans-serif;
