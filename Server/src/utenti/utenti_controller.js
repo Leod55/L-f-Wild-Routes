@@ -9,7 +9,7 @@ const getUtentiList = (req, res) => {
 };
 
 const addUtente = (req, res) => {
-  /*Prendo i dati dell'utente dalla richiesta*/
+
   const {
     username,
     password,
@@ -25,13 +25,11 @@ const addUtente = (req, res) => {
   pool.query(queries.getUtenteByUsernameQ, [username], (error, results) => {
     if (error) throw error;
 
-    /*Se la query da qualche riga come risultato significa che lo username è gia nel database*/
     if (results.rows.length > 0) {
       res
         .status(400)
         .json({ message: "Lo username è gia presente nel database" });
     } else {
-      /*Se non è già presente chiamo la query passando come parametri i dati della richiesta*/
       pool.query(
         queries.addUtente,
         [
@@ -65,7 +63,6 @@ const deleteUtente = (req, res) => {
   pool.query(queries.deleteUtente, [username], (error, results) => {
     if (error) throw error;
 
-    /*Se non ci sono righe significa che l'utente da eliminare non c'è*/
     if (results.rowCount === 0) {
       res.status(404).json({ message: "Utente non trovato" });
     } else {

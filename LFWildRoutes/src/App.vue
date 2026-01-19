@@ -4,7 +4,7 @@ import Header from "@/components/Header.vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import AdsContainer from "@/components/AdsContainer.vue";
+import AdBar from "@/components/AdBar.vue";
 
 export default {
   components: {
@@ -12,7 +12,7 @@ export default {
     Navbar,
     Footer,
     Sidebar,
-    AdsContainer,
+    AdBar,
   },
 };
 </script>
@@ -24,7 +24,7 @@ export default {
   <div class="row">
     <Sidebar></Sidebar>
     <RouterView></RouterView>
-    <AdsContainer></AdsContainer>
+    <AdBar></AdBar>
   </div>
 
   <Footer></Footer>

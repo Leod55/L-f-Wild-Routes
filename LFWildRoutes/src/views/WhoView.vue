@@ -29,9 +29,9 @@ export default {
 
 <template>
   <div class="col-6 main_div">
-    <h1 class="page-title">Noi di L&F WildRoutes</h1>
+    <h1>Noi di L&F WildRoutes</h1>
 
-    <div v-for="utente in utenti" :key="utente.username" class="guide-container">
+    <div v-for="utente in utenti" :key="utente.username">
       <GuideCard
         v-if="utente.ruolo === 'admin'"
         :username="utente.username"
@@ -47,17 +47,6 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped>
-.page-title {
-  color: var(--primary);
-  margin-bottom: 40px;
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.guide-container {
-  justify-content: center;
-}
+ 
+<style>
 </style>

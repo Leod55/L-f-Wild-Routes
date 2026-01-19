@@ -1,23 +1,43 @@
-<script></script>
+<script>
+export default {
+  props: {
+    img: {
+      type: String,
+      required: true,
+    },
+    descrizione: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    getUrlImg() {
+      return new URL(
+        `../assets/img/Pubblicita/${this.img}`,
+        import.meta.url
+      ).href;
+    },
+  },
+};
+</script>
 
 <template>
-  <article class="col-3 ad_article">
-    <div>
-      <img src="../assets/img/Pubblicita/Pubblicita1.png" alt="ad1" height="300"/>
-    </div>
+  <article class="section_article col-12">
+    <div class="section_content row">
+      <div class="col-6 img_section">
+        <img :src="getUrlImg()" alt="ad_img" />
+      </div>
 
-    <div>
-      <img src="../assets/img/Pubblicita/Pubblicita2.png" alt="ad2" height="300"/>
-    </div>
-
-    <div>
-      <img src="../assets/img/Pubblicita/Pubblicita3.png" alt="ad3" height="300"/>
+      <div class="col-6 section_info">
+        <section>
+          <h4>Descrizione:</h4>
+          <p>{{ descrizione }}</p>
+        </section>
+      </div>
     </div>
   </article>
 </template>
 
 <style>
-.ad_article {
-  text-align: center;
-}
+
 </style>

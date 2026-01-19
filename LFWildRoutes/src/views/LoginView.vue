@@ -55,24 +55,24 @@ export default {
         useSessionStore().setUser(data.username);
         this.$router.push("/");
       } else {
-        alert("Username o password errate");
+        alert(data.message);
       }
     },
 
     async registration() {
-      //mi assicuro che l'utente si registri solo se i campi rispettano le lunghezze massime
+
       if (!this.confermaRegistration()) {
         alert("Devi rispettare la lunghezza dei campi!!");
         return;
       }
 
-      //controllo che le password corrispondano
+
       if (!this.passwordMatch()) {
         alert("Le password non corrispondono!");
         return;
       }
 
-      //controllo se l'utente esiste già
+
       const utenteEsistente = await Auth.utenteEsistente(
         this.registrationData.username
       );
@@ -95,7 +95,7 @@ export default {
         this.registrationData.bio
       );
 
-      //controllo se la registrazione è avvenuta con successo e mostro la pagina del login
+
       if (data.username) {
         this.isLogin = true;
         alert("Registrazione avvenuta, ora puoi effettuare il login!!");
@@ -141,7 +141,7 @@ export default {
       );
     },
 
-    //-----------------------------------FUNZIONI PER I CONTROLLI SULLA LUNGHEZZA DEGLI INPUT-------------------------------------------
+
 
     checkUsernameLength() {
       return (
