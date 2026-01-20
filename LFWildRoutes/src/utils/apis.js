@@ -36,7 +36,7 @@ const addViaggio = async (
             prezzo,
             descrizione,
             extra,
-            foto_viaggio: "defaultimg.jpg",
+            foto_viaggio: foto_viaggio || "defaultimgviaggi.jpg",
         }),
     });
     return await response.json();
@@ -69,7 +69,7 @@ const addUtente = async (
             citta,
             data_nascita,
             ruolo: "user",
-            foto_utente: "defaultimg.jpg",
+            foto_utente: foto_utente || "defaultimgutenti.jpg",
             bio,
         }),
     });

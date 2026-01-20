@@ -43,11 +43,11 @@ export default {
         this.foto_viaggio,
         this.sessionStore.getUser()
       );
-      if (data) {
+      if (data && data.message === "Viaggio aggiunto con successo") {
         alert("Viaggio aggiunto con successo!");
         this.$router.push("/");
       } else {
-        console.log(data);
+        console.error(data);
         alert("Errore durante l'aggiunta del viaggio");
       }
     },
